@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StayFlow - Guest Check-Out</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#525f78",
+            "on-surface-variant": "#575e6b",
+            "secondary-container": "#e0f7f4",
+            "on-primary-fixed": "#0e1c32",
+            "on-tertiary": "#ffffff",
+            "background": "#f8fafc",
+            "surface-container": "#f1f5f9",
+            "surface-container-highest": "#e2e8f0",
+            "on-secondary-container": "#00564e",
+            "primary": "#0f172a",
+            "surface": "#f8fafc",
+            "on-primary-container": "#8593a8",
+            "on-secondary": "#ffffff",
+            "outline": "#94a3b8",
+            "secondary": "#007a6f",
+            "error": "#b91c1c",
+            "on-primary": "#ffffff",
+            "on-background": "#0f172a",
+            "surface-container-low": "#ffffff",
+            "surface-container-high": "#e8eef6",
+            "primary-container": "#0f172a",
+            "on-surface": "#0f172a",
+            "outline-variant": "#e2e8f0",
+            "secondary-fixed": "#7ae5d7",
+            "surface-container-lowest": "#ffffff"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container flex min-h-screen">
+<!-- Clean, Calm Sidebar Navigation -->
+<aside class="w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col justify-between shrink-0 z-20">
+<div class="flex flex-col">
+<!-- App Brand -->
+<div class="h-20 px-6 flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">hotel</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-base tracking-tight text-on-surface leading-tight">StayFlow</span>
+<span class="text-xs text-on-surface-variant">Front Desk</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="px-3 py-2 space-y-1">
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span>Reservations</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+<span>QR Check-in</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">room_service</span>
+<span>Guest Services</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-primary text-on-primary font-semibold text-sm shadow-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">key_off</span>
+<span>Check-out</span>
+</a>
+</nav>
+</div>
+<!-- Staff Profile Footer -->
+<div class="p-4 border-t border-outline-variant">
+<div class="flex items-center gap-3 px-2 py-1.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface font-semibold text-xs">
+          DN
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="text-xs font-semibold text-on-surface truncate">Daw Nu Nu</span>
+<span class="text-[11px] text-on-surface-variant truncate">Reception Desk</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- Clean, Uncluttered Top Bar -->
+<header class="h-20 bg-surface-container-lowest border-b border-outline-variant px-8 flex items-center justify-between">
+<div class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Check-Out</span>
+<span>/</span>
+<span>Folio Settlement</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-xs font-medium text-on-surface-variant bg-surface-container px-3 py-1.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Morning Shift</span>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 p-8 max-w-6xl w-full mx-auto space-y-6">
+<!-- Calm Search & Selected Guest Indicator -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-4 shadow-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-3 text-[20px] text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container rounded-xl pl-11 pr-28 py-2.5 text-sm font-medium text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none focus:ring-2 focus:ring-secondary/40 border-none" placeholder="Search room number or guest name (e.g. Room 402 / Thant Zin Oo)" type="text" value="Room 402 • Thant Zin Oo"/>
+<span class="absolute right-3 top-2.5 inline-flex items-center gap-1 text-xs font-medium text-secondary bg-secondary-container px-2.5 py-1 rounded-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active Guest
+          </span>
+</div>
+</div>
+<!-- Main Two-Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN (Folio Summary & Bill Table) -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Guest Summary Card -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-6 shadow-sm">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-xs uppercase font-semibold tracking-wider text-secondary">In-House Guest</span>
+<h1 class="text-2xl font-bold text-on-surface mt-1">Thant Zin Oo</h1>
+<p class="text-sm text-on-surface-variant mt-0.5">Room 402 • Deluxe Azure Suite</p>
+</div>
+<div class="text-right">
+<span class="text-xs text-on-surface-variant block">Stay Duration</span>
+<span class="text-sm font-medium text-on-surface">3 Nights (15 – 18 Oct)</span>
+</div>
+</div>
+<div class="my-6 border-t border-outline-variant"></div>
+<!-- Clean Bill Breakdown Table -->
+<div class="space-y-3">
+<div class="flex items-center justify-between text-sm py-1">
+<div class="flex items-center gap-2">
+<span class="text-on-surface font-medium">Room charges (3 nights)</span>
+<span class="text-xs bg-secondary-container text-on-secondary-container font-semibold px-2 py-0.5 rounded">Paid</span>
+</div>
+<span class="font-medium text-on-surface">660,000 MMK</span>
+</div>
+<div class="flex items-center justify-between text-sm py-1">
+<span class="text-on-surface font-medium">Incidentals (Mini-bar, Dining)</span>
+<span class="font-medium text-on-surface">89,000 MMK</span>
+</div>
+<div class="flex items-center justify-between text-sm py-1">
+<span class="text-on-surface font-medium">Taxes &amp; fees</span>
+<span class="font-medium text-on-surface">11,000 MMK</span>
+</div>
+<div class="border-t border-dashed border-outline-variant pt-3 flex items-center justify-between text-sm text-on-surface-variant">
+<span>Total Paid in Advance</span>
+<span class="font-semibold text-secondary">-660,000 MMK</span>
+</div>
+</div>
+<!-- Outstanding Balance Box -->
+<div class="mt-6 rounded-xl bg-primary p-5 text-on-primary flex items-center justify-between transition-colors" id="balance-box">
+<div>
+<span class="text-xs font-semibold tracking-wide uppercase text-secondary-fixed" id="balance-label">Outstanding Balance</span>
+<p class="text-xs text-on-primary-container mt-0.5" id="balance-desc">Balance due before checkout closure</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-bold tracking-tight" id="balance-amount">100,000 MMK</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (Settlement & Release Checklist) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Settlement Console -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-6 shadow-sm space-y-5">
+<div>
+<h2 class="text-base font-bold text-on-surface">Settlement</h2>
+<p class="text-xs text-on-surface-variant mt-0.5">Choose settlement method to collect balance</p>
+</div>
+<!-- Payment Options -->
+<div class="grid grid-cols-3 gap-2">
+<button class="payment-method-btn active py-3 px-2 rounded-xl border border-primary bg-primary text-on-primary text-xs font-semibold flex flex-col items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+<span>Card</span>
+</button>
+<button class="payment-method-btn py-3 px-2 rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container text-xs font-semibold flex flex-col items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span>Cash</span>
+</button>
+<button class="payment-method-btn py-3 px-2 rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface hover:bg-surface-container text-xs font-semibold flex flex-col items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+<span>KBZPay</span>
+</button>
+</div>
+<!-- Collect Payment Action -->
+<div id="collect-container">
+<button class="w-full py-3 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary font-semibold text-sm transition-colors flex items-center justify-center gap-2 shadow-sm" id="collect-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Collect Payment (100,000 MMK)</span>
+</button>
+</div>
+<div class="hidden p-3.5 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-between" id="payment-success">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">verified</span>
+<span class="text-xs font-semibold">100,000 MMK Collected</span>
+</div>
+<span class="text-xs font-bold text-secondary bg-surface-container-lowest px-2 py-0.5 rounded">Settled</span>
+</div>
+</div>
+<!-- Clean 2-Item Release Checklist -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant p-6 shadow-sm space-y-4">
+<div>
+<h2 class="text-base font-bold text-on-surface">Release Checklist</h2>
+<p class="text-xs text-on-surface-variant mt-0.5">Verify clearance before handing over receipt</p>
+</div>
+<div class="space-y-3">
+<label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/60 hover:bg-surface-container/50 cursor-pointer transition-colors">
+<input class="w-4 h-4 rounded text-secondary accent-secondary cursor-pointer" id="check-keycard" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Keycard returned</span>
+<span class="text-xs text-on-surface-variant">2 physical room keys received</span>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/60 hover:bg-surface-container/50 cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-secondary accent-secondary cursor-pointer" id="check-housekeeping" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-on-surface">Room cleared by housekeeping</span>
+<span class="text-xs text-secondary font-medium">Inspected &amp; approved</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Primary Final CTA -->
+<div class="space-y-2">
+<button class="w-full py-4 rounded-xl bg-surface-container-highest text-on-surface-variant/70 font-semibold text-sm cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2 shadow-sm" disabled="" id="checkout-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span>Complete Check-out &amp; Print Receipt</span>
+</button>
+<p class="text-xs text-center text-on-surface-variant" id="checkout-note">
+              Settle outstanding balance and verify keycard return to complete check-out.
+            </p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    (function() {
+      let isSettled = false;
+      const collectBtn = document.getElementById('collect-btn');
+      const collectContainer = document.getElementById('collect-container');
+      const paymentSuccess = document.getElementById('payment-success');
+      const balanceBox = document.getElementById('balance-box');
+      const balanceLabel = document.getElementById('balance-label');
+      const balanceDesc = document.getElementById('balance-desc');
+      const balanceAmount = document.getElementById('balance-amount');
+
+      const checkKeycard = document.getElementById('check-keycard');
+      const checkHousekeeping = document.getElementById('check-housekeeping');
+      const checkoutBtn = document.getElementById('checkout-btn');
+      const checkoutNote = document.getElementById('checkout-note');
+
+      // Payment option toggle
+      const methodBtns = document.querySelectorAll('.payment-method-btn');
+      methodBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          methodBtns.forEach(b => {
+            b.classList.remove('border-primary', 'bg-primary', 'text-on-primary');
+            b.classList.add('border-outline-variant', 'bg-surface-container-lowest', 'text-on-surface');
+          });
+          btn.classList.add('border-primary', 'bg-primary', 'text-on-primary');
+          btn.classList.remove('border-outline-variant', 'bg-surface-container-lowest', 'text-on-surface');
+        });
+      });
+
+      function updateReadiness() {
+        const keycardDone = checkKeycard.checked;
+        const housekeepingDone = checkHousekeeping.checked;
+
+        if (isSettled && keycardDone && housekeepingDone) {
+          checkoutBtn.disabled = false;
+          checkoutBtn.classList.remove('bg-surface-container-highest', 'text-on-surface-variant/70', 'cursor-not-allowed');
+          checkoutBtn.classList.add('bg-primary', 'text-on-primary', 'hover:bg-primary/90', 'cursor-pointer');
+          checkoutNote.textContent = 'All requirements satisfied. Ready to close folio and generate receipt.';
+          checkoutNote.classList.remove('text-on-surface-variant');
+          checkoutNote.classList.add('text-secondary');
+        } else {
+          checkoutBtn.disabled = true;
+          checkoutBtn.classList.add('bg-surface-container-highest', 'text-on-surface-variant/70', 'cursor-not-allowed');
+          checkoutBtn.classList.remove('bg-primary', 'text-on-primary', 'hover:bg-primary/90', 'cursor-pointer');
+          checkoutNote.textContent = 'Settle outstanding balance and verify keycard return to complete check-out.';
+          checkoutNote.classList.add('text-on-surface-variant');
+          checkoutNote.classList.remove('text-secondary');
+        }
+      }
+
+      collectBtn.addEventListener('click', () => {
+        isSettled = true;
+        collectContainer.classList.add('hidden');
+        paymentSuccess.classList.remove('hidden');
+
+        // Transform balance summary cleanly
+        balanceBox.classList.remove('bg-primary');
+        balanceBox.classList.add('bg-secondary-container', 'text-on-secondary-container');
+        balanceLabel.textContent = 'Folio Balanced';
+        balanceLabel.classList.remove('text-secondary-fixed');
+        balanceLabel.classList.add('text-secondary');
+        balanceDesc.textContent = 'Fully settled • Ready for closing';
+        balanceDesc.classList.remove('text-on-primary-container');
+        balanceDesc.classList.add('text-on-secondary-container');
+        balanceAmount.textContent = '0 MMK';
+        balanceAmount.classList.add('text-secondary');
+
+        updateReadiness();
+      });
+
+      checkKeycard.addEventListener('change', updateReadiness);
+      checkHousekeeping.addEventListener('change', updateReadiness);
+
+      checkoutBtn.addEventListener('click', () => {
+        if (checkoutBtn.disabled) return;
+        checkoutBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[20px] animate-spin">progress_activity</span>
+          <span>Finalizing &amp; Printing...</span>
+        `;
+        setTimeout(() => {
+          checkoutBtn.innerHTML = `
+            <span class="material-symbols-outlined text-[20px]">check</span>
+            <span>Check-out Completed</span>
+          `;
+          checkoutBtn.classList.remove('bg-primary');
+          checkoutBtn.classList.add('bg-secondary');
+          alert('Check-out completed for Room 402 (Thant Zin Oo). Final folio sent to printer.');
+        }, 800);
+      });
+    })();
+  </script>
+</body></html>

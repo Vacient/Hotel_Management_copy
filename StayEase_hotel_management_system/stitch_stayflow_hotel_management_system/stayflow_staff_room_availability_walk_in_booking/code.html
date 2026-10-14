@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StayFlow Staff</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container-high": "#dee8ff",
+          "tertiary-fixed-dim": "#ffb77d",
+          "secondary-fixed-dim": "#6bd8cb",
+          "on-primary-container": "#77849f",
+          "on-tertiary-container": "#c76c00",
+          "inverse-primary": "#b9c7e4",
+          "on-error": "#ffffff",
+          "error-container": "#ffdad6",
+          "surface-container": "#e7eeff",
+          "on-error-container": "#93000a",
+          "on-surface": "#111c2d",
+          "tertiary-fixed": "#ffdcc3",
+          "surface": "#f9f9ff",
+          "surface-variant": "#d8e3fb",
+          "on-primary-fixed": "#0e1c32",
+          "error": "#ba1a1a",
+          "outline": "#75777e",
+          "surface-bright": "#f9f9ff",
+          "on-secondary-fixed-variant": "#005049",
+          "inverse-surface": "#263143",
+          "primary-fixed-dim": "#b9c7e4",
+          "primary-container": "#0e1c32",
+          "on-tertiary-fixed-variant": "#6e3900",
+          "primary": "#000000",
+          "surface-container-highest": "#d8e3fb",
+          "on-secondary-container": "#006f66",
+          "on-primary": "#ffffff",
+          "secondary-container": "#86f2e4",
+          "secondary": "#006a61",
+          "secondary-fixed": "#89f5e7",
+          "tertiary": "#000000",
+          "on-secondary": "#ffffff",
+          "inverse-on-surface": "#ecf1ff",
+          "tertiary-container": "#2f1500",
+          "background": "#f9f9ff",
+          "outline-variant": "#c5c6cd",
+          "on-background": "#111c2d",
+          "on-surface-variant": "#44474d",
+          "on-secondary-fixed": "#00201d",
+          "surface-tint": "#525f78",
+          "primary-fixed": "#d6e3ff",
+          "on-primary-fixed-variant": "#3a475f",
+          "surface-container-low": "#f0f3ff",
+          "surface-dim": "#cfdaf2",
+          "on-tertiary": "#ffffff",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-fixed": "#2f1500"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "2rem",
+          "gutter": "1.5rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "space-xl": "2rem",
+          "space-xs": "0.25rem",
+          "space-sm": "0.5rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "0.75rem"
+        },
+        "fontFamily": {
+          "currency-display": ["Inter"],
+          "label-sm": ["Inter"],
+          "headline-xl-mobile": ["Inter"],
+          "body-sm": ["Inter"],
+          "body-lg": ["Inter"],
+          "label-md": ["Inter"],
+          "headline-lg-mobile": ["Inter"],
+          "body-md": ["Inter"],
+          "title-sm": ["Inter"],
+          "headline-xl": ["Inter"],
+          "headline-md": ["Inter"],
+          "headline-lg": ["Inter"]
+        },
+        "fontSize": {
+          "currency-display": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+          "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+          "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+          "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+          "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+          "headline-lg-mobile": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+          "title-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+          "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "headline-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+        }
+      }
+    }
+  };
+</script>
+<meta content="web_dashboard" name="shell-type"/></head>
+<body class="bg-surface text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container flex min-h-screen">
+<!-- Clean, Calm Sidebar Navigation -->
+<aside class="w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col justify-between shrink-0 z-20">
+<div class="flex flex-col">
+<!-- App Brand -->
+<div class="h-20 px-6 flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">hotel</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-base tracking-tight text-on-surface leading-tight">StayFlow</span>
+<span class="text-xs text-on-surface-variant">Front Desk</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="px-3 py-2 space-y-1" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm">
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors text-sm font-medium" data-path="stayflow-staff-reservations-simplified" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span>Reservations</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors text-sm font-medium" data-path="stayflow-staff-room-availability-simplified" href="#">
+<span class="material-symbols-outlined text-[20px]">meeting_room</span>
+<span>Room Availability</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors text-sm font-medium" data-path="stayflow-staff-qr-check-in-simplified" href="#">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+<span>QR Check-in</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors text-sm font-medium" data-path="stayflow-staff-guest-services-simplified" href="#">
+<span class="material-symbols-outlined text-[20px]">room_service</span>
+<span>Guest Services</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors text-sm font-medium" data-path="stayflow-staff-check-out-simplified" href="#">
+<span class="material-symbols-outlined text-[20px]">key_off</span>
+<span>Check-out</span>
+</a>
+</nav>
+</div>
+<!-- Staff Profile Footer -->
+<div class="p-4 border-t border-outline-variant">
+<div class="flex items-center gap-3 px-2 py-1.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface font-semibold text-xs">
+          DN
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="text-xs font-semibold text-on-surface truncate">Daw Nu Nu</span>
+<span class="text-[11px] text-on-surface-variant truncate">Reception Desk</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- Clean, Uncluttered Top Bar -->
+<header class="h-20 bg-surface-container-lowest border-b border-outline-variant px-8 flex items-center justify-between">
+<div class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="font-semibold text-on-surface">Front Desk</span>
+<span>/</span>
+<span>Operations</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-xs font-medium text-on-surface-variant bg-surface-container px-3 py-1.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Morning Shift</span>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 p-8 max-w-6xl w-full mx-auto space-y-6"><div class="flex flex-col w-full">
+<!-- Toast Floating Notification (Contextual Success Preview) -->
+<div class="fixed top-6 right-8 z-50 transition-all duration-300 transform translate-y-0 opacity-100 flex items-center gap-4 bg-surface-container-lowest text-on-surface p-4 rounded-xl shadow-xl max-w-md" id="bookingToast">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface truncate">Folio #SF-2025-9502</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Confirmed
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Walk-in for Aung San Lin • Room 306</p>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" onclick="document.getElementById('bookingToast').style.display='none'" title="Dismiss">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Header Section with Operational Context & KPI Chips -->
+<section class="flex flex-col gap-5 mb-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Front Desk Operations</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live Room Inventory</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Room Availability &amp; Walk-in Booking</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Search live inventory, check occupancy, and instantly book rooms for walk-in or arriving guests.
+        </p>
+</div>
+<!-- Live Shift Stats Chips -->
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Available Today:</span>
+<span class="font-title-sm text-title-sm text-on-surface">14</span>
+</div>
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Occupied:</span>
+<span class="font-title-sm text-title-sm text-on-surface">48</span>
+</div>
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-surface-container-lowest shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Maintenance:</span>
+<span class="font-title-sm text-title-sm text-on-surface">2</span>
+</div>
+</div>
+</div>
+<!-- Horizontal Streamlined Search Filter Bar -->
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col xl:flex-row items-stretch xl:items-center gap-3">
+<!-- Date Range Cluster -->
+<div class="flex flex-1 items-center bg-surface-container-low rounded-lg px-3.5 py-2 gap-3 min-w-[280px]">
+<span class="material-symbols-outlined text-[20px] text-secondary">calendar_today</span>
+<div class="flex flex-col min-w-0 flex-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Check-In</label>
+<input class="bg-transparent border-none p-0 font-label-md text-label-md text-on-surface font-semibold focus:ring-0 cursor-pointer w-full" readonly="" type="text" value="Today, 18 Oct 2025"/>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline">arrow_forward</span>
+<div class="flex flex-col min-w-0 flex-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Check-Out (3 Nights)</label>
+<input class="bg-transparent border-none p-0 font-label-md text-label-md text-on-surface font-semibold focus:ring-0 cursor-pointer w-full" readonly="" type="text" value="Tue, 21 Oct 2025"/>
+</div>
+</div>
+<!-- Guests and Capacity Selector -->
+<div class="flex items-center bg-surface-container-low rounded-lg px-3.5 py-2 gap-3 min-w-[190px]">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">group</span>
+<div class="flex flex-col min-w-0 flex-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Guests &amp; Rooms</label>
+<div class="font-label-md text-label-md text-on-surface font-semibold truncate">2 Adults, 0 Child • 1 Room</div>
+</div>
+</div>
+<!-- Room Type Selector -->
+<div class="flex items-center bg-surface-container-low rounded-lg px-3.5 py-2 gap-3 min-w-[210px]">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">bed</span>
+<div class="flex flex-col min-w-0 flex-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Room Category</label>
+<select class="bg-transparent border-none p-0 font-label-md text-label-md text-on-surface font-semibold focus:ring-0 cursor-pointer w-full pr-4">
+<option>All Categories</option>
+<option selected="">Deluxe Azure Suite</option>
+<option>Executive Ocean Panorama</option>
+<option>Heritage Junior Suite</option>
+<option>Governor Suite</option>
+</select>
+</div>
+</div>
+<!-- Max Budget Field -->
+<div class="flex items-center bg-surface-container-low rounded-lg px-3.5 py-2 gap-3 min-w-[160px]">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">payments</span>
+<div class="flex flex-col min-w-0 flex-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Max Budget / Night</label>
+<input class="bg-transparent border-none p-0 font-label-md text-label-md text-on-surface font-semibold placeholder:text-outline focus:ring-0 w-full" placeholder="MMK 300,000" type="text"/>
+</div>
+</div>
+<!-- Trigger Search Button -->
+<button class="bg-primary-container text-on-primary hover:opacity-90 px-5 py-3 rounded-lg flex items-center justify-center gap-2 font-label-md text-label-md transition-all shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[18px]">search</span>
+<span>Update Filter</span>
+</button>
+</div>
+</section>
+<!-- Main Split Architecture -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT MAIN COLUMN: Availability Results & Inventory (7 Cols on LG) -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<!-- Category & Status Tabs -->
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm shadow-sm transition-all">
+            All Rooms (22)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+            Available (14)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span>
+            Occupied (6)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+            Reserved (2)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-all flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+            Maintenance (2)
+          </button>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:block shrink-0">Sorted by Floor</span>
+</div>
+<!-- Room Inventory Cards Stack -->
+<!-- CARD 1: Room 306 (Selected Active State) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-4 transition-all relative overflow-hidden ring-2 ring-secondary bg-surface-container-low/40">
+<div class="absolute top-0 right-0 bg-secondary text-on-secondary px-3 py-1 rounded-bl-xl font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+          Selected for Walk-in
+        </div>
+<div class="flex flex-col sm:flex-row gap-4">
+<!-- Room Thumbnail -->
+<div class="sm:w-44 h-32 rounded-lg overflow-hidden shrink-0 bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="A tranquil, high-end boutique hotel suite featuring plush white king bedding, deep navy architectural accent wall, natural light pouring through French windows overlooking a coastal harbor, warm oak nightstands with brass reading lamps, serene luxury hospitality interior photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpr7tbuAvz5sqHngloidVEUUhWb0_s7s0OlK4NqlpekhAU95IioavBv4NNVAxe3kYNdyKg6VgYXdZTjGozev-X4U_1fy1a6e3UlqgFUPTT7m4jZCphSeqh89XYMsd3OHa3gGWv4OlQwpn0lOhy-jE_5YWMK04DGNsh2huwrtu1qk7j2JgRxb6XlVsHYRe8y8IxvAN_VRWX0XOvDjc2KuzyvCu8ZaZs4qYxhhMbz6f-ZJo3OrMmyaMs"/>
+<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary-container/80 text-on-primary font-label-sm text-label-sm backdrop-blur-sm">Floor 3</span>
+</div>
+<!-- Room Information Details -->
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-title-sm text-title-sm text-on-surface">Room 306</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium truncate">Deluxe Azure Suite</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 King Bed • Max 2 Adults • 42 m² • Sea Breeze Wing</p>
+<!-- Amenities Chips -->
+<div class="flex flex-wrap gap-1.5 mt-2.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Harbor View</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Free High-Speed Wi-Fi</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Breakfast Inc.</span>
+</div>
+</div>
+<!-- Pricing & Action Row -->
+<div class="flex items-end justify-between mt-3 pt-3">
+<div>
+<span class="font-title-sm text-title-sm text-on-surface font-bold">220,000 MMK</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Total (3 nights): <span class="font-semibold text-on-surface">660,000 MMK</span></div>
+</div>
+<button class="px-4 py-2 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Active Selection</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 2: Room 304 (Available State) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-4 transition-all hover:shadow-md">
+<div class="flex flex-col sm:flex-row gap-4">
+<!-- Room Thumbnail -->
+<div class="sm:w-44 h-32 rounded-lg overflow-hidden shrink-0 bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="Warm modern hospitality guest room interior with ocean view balcony, minimalist Scandinavian wooden furnishings, soft cream linen textiles, subtle navy decorative cushions, soft ambient morning light, crisp boutique resort aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtcoDN0mQoZhWcMLRaVXQd30MLsYW0d_IMh4Sumxv81mNtW7tef8GANxmvkefhePMXhDZ35xtRPaCNLxxDrsIea7zJePAVOQoBmtZL9Jw0WaqPwKMR2_Zz681JKxsAA7mZU6QdWw0K1yqj5Bl4grOpkCYgZr8pNHf4gydEqRRmRRmAUynkmbwL9ZUd6z8KnX7_GJHuxk-AUjzFmH9nMgiW0iq97SaW1UUXzg54hEIWjiaW9E18fKoL"/>
+<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary-container/80 text-on-primary font-label-sm text-label-sm backdrop-blur-sm">Floor 3</span>
+</div>
+<!-- Room Information Details -->
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface">Room 304</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium truncate">Deluxe Azure Suite</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Available
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 King Bed • Max 2 Adults • 40 m² • Garden Wing</p>
+<!-- Amenities Chips -->
+<div class="flex flex-wrap gap-1.5 mt-2.5">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Garden Terrace</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Free High-Speed Wi-Fi</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Espresso Machine</span>
+</div>
+</div>
+<!-- Pricing & Action Row -->
+<div class="flex items-end justify-between mt-3 pt-3">
+<div>
+<span class="font-title-sm text-title-sm text-on-surface font-bold">210,000 MMK</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Total (3 nights): <span class="font-semibold text-on-surface">630,000 MMK</span></div>
+</div>
+<button class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest font-label-md text-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">touch_app</span>
+<span>Select Room</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 3: Room 208 (Occupied — In-House) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-4 opacity-80">
+<div class="flex flex-col sm:flex-row gap-4">
+<!-- Room Thumbnail (Muted) -->
+<div class="sm:w-44 h-32 rounded-lg overflow-hidden shrink-0 bg-surface-container relative filter grayscale-[40%]">
+<img class="w-full h-full object-cover" data-alt="Elegant hotel room with king bed, subtle teal accents, dark architectural wood details, modern minimalist artwork, soft indirect evening lighting, luxury suite interior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxYTMmYPI4XxJiWZGF9QQpX4zEZN-moRjMzNMlpbhnVrID9qXcS_JhrHLrJGx65thteNBJEIdom_vx6xzC1-jtf_FqU0AeKiEOkO2jPdiUo6cqD2UVEUGQjQ70-X1y4Ri5U46RzKnrA5STQ4BmY8y7ffmhNsljxumXn7xHc5lWPtaSIGcV0j60FfcsTxuikgAYBThQX61sQpMAjO8UlH1h44maQTRUdfYxIBaGIZUWqPYbKd6S-4oY"/>
+<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary-container/80 text-on-primary font-label-sm text-label-sm backdrop-blur-sm">Floor 2</span>
+</div>
+<!-- Room Information Details -->
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface">Room 208</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium truncate">Heritage Junior Suite</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                  Occupied — In-House
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2 Twin Beds • Max 2 Adults • 38 m² • East Corridor</p>
+<div class="mt-2.5 flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm bg-surface-container-low px-2.5 py-1.5 rounded-lg w-fit">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+<span>Guest Departs: Tomorrow, 19 Oct at 12:00 PM (Daw Thida)</span>
+</div>
+</div>
+<!-- Pricing & Action Row -->
+<div class="flex items-end justify-between mt-3 pt-3">
+<div>
+<span class="font-title-sm text-title-sm text-on-surface-variant font-semibold">185,000 MMK</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant/50 font-label-md text-label-md cursor-not-allowed" disabled="">
+                Unavailable
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 4: Room 412 (Reserved — Overlapping) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-4 opacity-85">
+<div class="flex flex-col sm:flex-row gap-4">
+<!-- Room Thumbnail -->
+<div class="sm:w-44 h-32 rounded-lg overflow-hidden shrink-0 bg-surface-container relative filter grayscale-[30%]">
+<img class="w-full h-full object-cover" data-alt="Grand ocean panorama hotel suite with expansive floor-to-ceiling glass windows overlooking blue ocean waters, private chaise lounge, pristine white bedding, maritime luxury styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG9XOTgEpa4Cx0MIZVjDK1S6PsHPhX5dPhJmhdAuRBXgt2YoDWTTmlL5rOo-ZlImdWsLOsgI4XdMDuJ8Yn9u3ZTEcZb9vXyvMmQ01Vvlc0rFwFhU76cxfYYAuCYY95FgYvRDk8UUhPHRlujI6xL_lSrDcvsUv5fBOO_rRFSX5_fcFIgq2TdbR78Z3JP0E4SdLbeQqDh6phl3KY3QR3k5QYm92-13x-_eGsu1S0ZmRwl0dV9omxcUdY"/>
+<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary-container/80 text-on-primary font-label-sm text-label-sm backdrop-blur-sm">Floor 4</span>
+</div>
+<!-- Room Information Details -->
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface">Room 412</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium truncate">Executive Ocean Panorama</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+                  Reserved — Overlapping
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 Super King • Max 2 Adults • 56 m² • Penthouse Level</p>
+<div class="mt-2.5 flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm bg-surface-container-low px-2.5 py-1.5 rounded-lg w-fit">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">event_busy</span>
+<span>Arriving 19 Oct – 24 Oct (Booking #SF-8891)</span>
+</div>
+</div>
+<!-- Pricing & Action Row -->
+<div class="flex items-end justify-between mt-3 pt-3">
+<div>
+<span class="font-title-sm text-title-sm text-on-surface-variant font-semibold">340,000 MMK</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant/50 font-label-md text-label-md cursor-not-allowed" disabled="">
+                Conflict (1 Night Only)
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 5: Room 102 (Blocked — Maintenance) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-4 opacity-75">
+<div class="flex flex-col sm:flex-row gap-4">
+<div class="sm:w-44 h-32 rounded-lg overflow-hidden shrink-0 bg-surface-container relative flex items-center justify-center bg-surface-container-high">
+<span class="material-symbols-outlined text-[36px] text-error">build_circle</span>
+<span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary-container/80 text-on-primary font-label-sm text-label-sm backdrop-blur-sm">Floor 1</span>
+</div>
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface">Room 102</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium truncate">Deluxe Courtyard</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Blocked — Maintenance
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 Queen Bed • Max 2 Adults • 32 m²</p>
+<div class="mt-2.5 flex items-center gap-2 text-error font-body-sm text-body-sm bg-error-container/40 px-2.5 py-1.5 rounded-lg w-fit">
+<span class="material-symbols-outlined text-[16px]">handyman</span>
+<span>Work Order #WO-402: Central AC System Servicing (Until 20 Oct)</span>
+</div>
+</div>
+<div class="flex items-end justify-between mt-3 pt-3">
+<div>
+<span class="font-title-sm text-title-sm text-on-surface-variant font-semibold">170,000 MMK</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ night</span>
+</div>
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant/50 font-label-md text-label-md cursor-not-allowed" disabled="">
+                Out of Order
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Walk-in Booking & Reservation Drawer (5 Cols on LG) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-md p-6 flex flex-col gap-6 sticky top-6">
+<!-- Drawer Header -->
+<div class="flex items-start justify-between pb-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<h2 class="font-headline-md text-headline-md text-on-surface">New Walk-in Booking</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Direct reception check-in desk registration</p>
+</div>
+<button class="text-on-surface-variant hover:text-error text-label-sm font-label-sm transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span>Clear</span>
+</button>
+</div>
+<!-- Selected Room Highlight Card -->
+<div class="bg-surface-container-low p-3.5 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-title-sm text-title-sm font-bold">
+            306
+          </div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-on-surface">Deluxe Azure Suite</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Floor 3 • Sea Breeze Wing</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-title-sm text-title-sm text-secondary font-bold">220,000</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">MMK / night</span>
+</div>
+</div>
+<!-- Stay Recap Pill -->
+<div class="flex items-center gap-2 px-3.5 py-2.5 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">date_range</span>
+<span class="font-semibold">18 Oct – 21 Oct 2025</span>
+<span class="text-outline-variant">•</span>
+<span>3 Nights</span>
+<span class="text-outline-variant">•</span>
+<span>2 Adults</span>
+</div>
+<!-- Guest Contact Form -->
+<div class="space-y-4">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-1.5">
+            Guest Full Name <span class="text-error">*</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:outline-none transition-all pl-10" type="text" value="Aung San Lin"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[20px] text-outline">person</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-1.5">
+              Phone Number <span class="text-error">*</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:outline-none transition-all pl-10" type="tel" value="+95 9 791 234 567"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[20px] text-outline">call</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-1.5">
+              ID / Passport No.
+            </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:outline-none transition-all pl-10" type="text" value="12/KAMAYA(N)189022"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[20px] text-outline">badge</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-1.5">
+            Email Address (Optional)
+          </label>
+<div class="relative">
+<input class="w-full bg-surface-container-low text-on-surface rounded-lg px-3.5 py-2.5 font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:outline-none transition-all pl-10" type="email" value="aungsan.lin@example.com"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[20px] text-outline">mail</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase mb-1.5">
+            Special Requests &amp; Notes
+          </label>
+<textarea class="w-full bg-surface-container-low text-on-surface rounded-lg p-3 font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:outline-none transition-all resize-none" rows="2">High floor preferred, extra feather pillows. Arrived via private car.</textarea>
+</div>
+</div>
+<!-- Payment Policy Rules Selector -->
+<div class="space-y-2.5">
+<label class="block font-label-sm text-label-sm text-on-surface-variant uppercase">
+          Payment Method &amp; Guarantee Policy
+        </label>
+<!-- Option 1: Pay at Hotel (Active) -->
+<label class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-all ring-1 ring-secondary">
+<input checked="" class="mt-1 text-secondary focus:ring-secondary" name="payment_mode" type="radio"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Pay at Hotel</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Eligible (&lt;24h)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Settle with Card or Cash directly at front desk counter upon registration.</p>
+</div>
+</label>
+<!-- Option 2: Prepaid Digital -->
+<label class="flex items-start gap-3 p-3 rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-all">
+<input class="mt-1 text-secondary focus:ring-secondary" name="payment_mode" type="radio"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Prepaid Digital / Mobile Pay</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Instant Receipt</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">KBZPay, WavePay, or international Visa/Mastercard gateway terminal.</p>
+</div>
+</label>
+</div>
+<!-- Folio Pricing Breakdown Card -->
+<div class="bg-surface-container-low p-4 rounded-xl space-y-2">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Deluxe Azure Suite (3 nights × 220,000)</span>
+<span class="text-on-surface font-medium">660,000 MMK</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Commercial Tax &amp; Resort Service (15%)</span>
+<span class="text-on-surface font-medium">99,000 MMK</span>
+</div>
+<div class="flex justify-between items-baseline pt-2 mt-2 font-headline-md text-headline-md text-on-surface">
+<span>Total Folio Amount</span>
+<span class="font-bold text-secondary">759,000 MMK</span>
+</div>
+</div>
+<!-- Anti Double-booking & Conflict Lock Indicator -->
+<div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">lock_clock</span>
+<span>Inventory locked for 15 mins • No double-booking conflict detected</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-2.5">
+<button class="w-full bg-primary-container text-on-primary hover:opacity-95 py-3.5 px-4 rounded-xl font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-sm transition-all">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+<span>Create Reservation &amp; Issue Folio</span>
+</button>
+<button class="w-full bg-surface-container text-on-surface hover:bg-surface-container-high py-2.5 px-4 rounded-xl font-label-md text-label-md transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Print Registration Card Only</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Confirmation Modal / Card Contextual Block (Bottom Docked) -->
+<section class="mt-10 bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<!-- QR Slip Preview -->
+<div class="w-16 h-16 bg-surface-container rounded-lg p-1.5 shrink-0 flex items-center justify-center">
+<!-- Compact SVG QR Code Representation -->
+<svg class="w-full h-full text-on-surface" fill="currentColor" viewbox="0 0 24 24">
+<path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm8-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm11-2h2v2h-2v-2zm-3 2h2v2h-2v-2zm3 2h2v2h-2v-2zm2-2h2v2h-2v-2zm-2 4h2v2h-2v-2zm2 0h2v2h-2v-2zm-4 0h2v2h-2v-2z"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-title-sm text-title-sm text-on-surface">Last Registered Walk-in: Folio #SF-2025-9502</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Active Guest</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Guest: <strong class="text-on-surface">Aung San Lin</strong> • Room 306 (Deluxe Azure Suite) • Checked-in by Daw Nu Nu (Front Desk Morning Shift)
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>View Folio in Reservations</span>
+</button>
+<button class="px-4 py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Print Reg Card &amp; QR Slip</span>
+</button>
+</div>
+</section>
+</div>
+<script>
+  // Simple micro-interactions for front desk desk operators
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      if (this.innerText.includes('Select Room')) {
+        const toast = document.getElementById('bookingToast');
+        if (toast) {
+          toast.style.display = 'flex';
+          toast.classList.remove('opacity-0');
+        }
+      }
+    });
+  });
+</script></main>
+</div>
+</body></html>

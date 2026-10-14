@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StayFlow Staff</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed": "#2f1500",
+          "surface-tint": "#525f78",
+          "on-primary-fixed": "#0e1c32",
+          "surface-container-lowest": "#ffffff",
+          "error": "#ba1a1a",
+          "on-secondary-fixed": "#00201d",
+          "secondary-fixed-dim": "#6bd8cb",
+          "tertiary-fixed": "#ffdcc3",
+          "on-error": "#ffffff",
+          "tertiary": "#000000",
+          "inverse-on-surface": "#ecf1ff",
+          "on-background": "#111c2d",
+          "secondary": "#006a61",
+          "primary-container": "#0e1c32",
+          "surface-variant": "#d8e3fb",
+          "surface": "#f9f9ff",
+          "on-secondary-container": "#006f66",
+          "on-surface": "#111c2d",
+          "on-primary": "#ffffff",
+          "surface-container-highest": "#d8e3fb",
+          "outline": "#75777e",
+          "tertiary-fixed-dim": "#ffb77d",
+          "surface-container-high": "#dee8ff",
+          "on-primary-container": "#77849f",
+          "primary-fixed-dim": "#b9c7e4",
+          "error-container": "#ffdad6",
+          "surface-bright": "#f9f9ff",
+          "on-tertiary-fixed-variant": "#6e3900",
+          "inverse-primary": "#b9c7e4",
+          "background": "#f9f9ff",
+          "on-error-container": "#93000a",
+          "inverse-surface": "#263143",
+          "on-primary-fixed-variant": "#3a475f",
+          "on-tertiary": "#ffffff",
+          "primary-fixed": "#d6e3ff",
+          "secondary-fixed": "#89f5e7",
+          "surface-container-low": "#f0f3ff",
+          "surface-container": "#e7eeff",
+          "surface-dim": "#cfdaf2",
+          "primary": "#000000",
+          "on-surface-variant": "#44474d",
+          "tertiary-container": "#2f1500",
+          "secondary-container": "#86f2e4",
+          "on-secondary-fixed-variant": "#005049",
+          "on-tertiary-container": "#c76c00",
+          "outline-variant": "#c5c6cd"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "2rem",
+          "space-xl": "2rem",
+          "gutter": "1.5rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "space-sm": "0.5rem",
+          "gutter-mobile": "0.75rem",
+          "space-xs": "0.25rem",
+          "margin-mobile": "1rem"
+        },
+        "fontFamily": {
+          "headline-lg-mobile": ["Inter"],
+          "headline-lg": ["Inter"],
+          "headline-xl-mobile": ["Inter"],
+          "body-md": ["Inter"],
+          "currency-display": ["Inter"],
+          "body-sm": ["Inter"],
+          "body-lg": ["Inter"],
+          "title-sm": ["Inter"],
+          "label-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "label-md": ["Inter"],
+          "headline-xl": ["Inter"]
+        },
+        "fontSize": {
+          "headline-lg-mobile": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+          "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+          "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+          "currency-display": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+          "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+          "title-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+          "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+          "headline-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+          "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+        }
+      }
+    }
+  };
+</script>
+<meta content="web_dashboard" name="shell-type"/>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container min-h-screen">
+<!-- LEFT NAVIGATION SIDEBAR -->
+<aside class="fixed top-0 left-0 bottom-0 w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col justify-between z-30">
+<div class="flex flex-col">
+<div class="h-20 px-6 flex items-center gap-3 border-b border-outline-variant">
+<div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">hotel</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm tracking-tight text-on-surface leading-tight">StayFlow</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Front Desk Ops</span>
+</div>
+</div>
+<nav class="p-3 space-y-1" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-sm">
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="reservations" href="#">
+<span>Reservations</span>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="room-availability" href="#">
+<span>Room Availability</span>
+</a>
+<a aria-current="page" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-colors bg-primary-container text-on-primary font-semibold shadow-sm" data-path="booking-requests" href="#">
+<span>Booking Requests</span>
+<span class="inline-flex items-center justify-center px-2 py-0.5 rounded-full text-xs font-semibold bg-tertiary-fixed text-on-tertiary-fixed ring-1 ring-tertiary-fixed-dim/40">3</span>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="qr-check-in" href="#">
+<span>QR Check-in</span>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="guest-services" href="#">
+<span>Guest Services</span>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="check-out" href="#">
+<span>Check-out</span>
+</a>
+</nav>
+</div>
+<div class="p-4 border-t border-outline-variant bg-surface-container-low/40">
+<div class="flex items-center gap-3 px-2 py-1.5">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center text-on-surface font-title-sm text-title-sm">
+        DN
+      </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Daw Nu Nu</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Reception Desk • Staff</span>
+</div>
+</div>
+</div>
+</aside>
+<div class="pl-64 min-h-screen flex flex-col">
+<!-- TOP APP BAR -->
+<header class="fixed top-0 right-0 left-64 h-20 bg-surface-container-lowest/95 backdrop-blur-sm border-b border-outline-variant px-8 z-20 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">apartment</span>
+<span class="font-label-md text-label-md font-semibold">Yangon Heritage Wing</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+<div class="hidden md:flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-medium text-on-surface">Morning Shift</span>
+<span class="text-outline-variant">•</span>
+<span>Desk 01</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Notifications" class="relative w-9 h-9 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 min-w-[16px] h-4 px-1 rounded-full bg-error text-on-error font-label-sm text-[10px] leading-tight flex items-center justify-center font-bold shadow-sm">3</span>
+</button>
+<div class="h-6 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col text-right hidden sm:flex">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Daw Nu Nu</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Front Desk</span>
+</div>
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-md text-label-md font-semibold ring-2 ring-surface-variant">
+          DN
+        </div>
+</div>
+</div>
+</header>
+<main class="flex-1 pt-20 p-8 max-w-7xl w-full mx-auto space-y-6">
+<div class="flex flex-col w-full">
+<!-- Header & Live Feed Status Area -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Front Desk Operations</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Verification Center</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Booking Requests &amp; Payment Verification</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+        Review incoming reservations, verify digital payment settlement against merchant ledgers, manage room locking, and generate secure QR passes.
+      </p>
+</div>
+<!-- Quick Stat Chips -->
+<div class="flex flex-wrap items-center gap-2">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 text-amber-900 shadow-sm border border-amber-200">
+<span class="w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-semibold">3 New Requests</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/40 text-on-secondary-fixed-variant shadow-sm border border-secondary/20">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-semibold">2 Awaiting Gateway</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">sync</span>
+<span class="font-label-sm text-label-sm font-medium">Gateway Live</span>
+</div>
+</div>
+</div>
+<!-- Filter & Search Command Strip -->
+<div class="bg-surface-container-lowest rounded-xl p-3 shadow-sm mb-6 flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between border border-outline-variant/60">
+<!-- Search Bar -->
+<div class="relative flex-1 min-w-[280px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full pl-9 pr-4 py-2 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-secondary focus:shadow-sm transition-all" placeholder="Search by booking reference (#SF-9510), guest name, or phone..." type="text" value="#SF-2025-9510"/>
+</div>
+<!-- Filter Buttons Scrollable Track -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
+<button class="px-3 py-1.5 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap">
+        All Requests (6)
+      </button>
+<button class="px-3 py-1.5 rounded-lg font-label-md text-label-md font-semibold bg-primary-container text-on-primary shadow-sm whitespace-nowrap flex items-center gap-1.5">
+<span>New Requests</span>
+<span class="px-1.5 py-0.2 rounded-full bg-white/20 text-on-primary font-label-sm text-label-sm">3</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap">
+        Prepaid Verification (2)
+      </button>
+<button class="px-3 py-1.5 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap">
+        Pay at Hotel (1)
+      </button>
+<button class="px-3 py-1.5 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap">
+        Confirmed (14)
+      </button>
+</div>
+<!-- Calendar Selector Pill -->
+<div class="flex items-center gap-2 pl-3 py-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="font-label-sm text-label-sm font-semibold whitespace-nowrap">Arrival: Today &amp; Next 14 Days</span>
+</div>
+</div>
+<!-- Workspace Grid: Queue (5 Cols) & Verification Workbench (7 Cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT PANEL: Influx Queue / Booking List (5 Cols) -->
+<div class="lg:col-span-5 space-y-3">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Incoming Requests Queue (3 Pending Action)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sorted: Newest</span>
+</div>
+<!-- Item 1: Selected & Needs Verification -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-md transition-all cursor-pointer relative overflow-hidden ring-2 ring-secondary/30 bg-gradient-to-r from-secondary/5 via-transparent to-transparent">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between gap-2 mb-2.5">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-title-sm text-title-sm font-bold text-on-surface tracking-tight">Thant Zin Oo</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">Elite VIP</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">#SF-2025-9510</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-900 border border-amber-200 font-label-sm text-[11px] font-semibold flex items-center gap-1 shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+            Proof Uploaded
+          </span>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-3 text-on-surface text-xs">
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Room Allocation</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate block">Suite 304</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Stay Schedule</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">18–21 Oct (3N)</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Total Amount</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface font-mono">759,000 MMK</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Gateway Channel</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate block">KBZPay Quick Pay</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">check_circle</span>
+<span class="text-secondary font-semibold">Room 304 Locked</span>
+<span>•</span>
+<span>12m ago</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold flex items-center gap-0.5">
+            Active Review
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- Item 2: Pay at Hotel (<24h arrival) -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-pointer border border-outline-variant/60">
+<div class="flex items-start justify-between gap-3 mb-2.5">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-title-sm text-title-sm font-semibold text-on-surface">Dr. Kenneth Holmes</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">#SF-2025-9512</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-900 border border-teal-200 font-label-sm text-[11px] font-semibold flex items-center gap-1.5 shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Pay at Hotel (&lt;24h)
+          </span>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-3">
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Room</span>
+<span class="font-label-md text-label-md font-medium text-on-surface truncate block">Heritage 208</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Arrival</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">Today, 18 Oct</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Pay Due</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface font-mono">185,000 MMK</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Guaranteed</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">Valid ID on File</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">check_circle</span>
+<span class="text-on-surface-variant">Room Clean</span>
+<span>•</span>
+<span>Booked 28m ago</span>
+</div>
+<button class="text-on-surface font-semibold hover:text-secondary flex items-center gap-0.5">
+            Quick Confirm
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Item 3: Conflict Alert Overlap -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-pointer border border-outline-variant/60">
+<div class="flex items-start justify-between gap-3 mb-2.5">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-title-sm text-title-sm font-semibold text-on-surface">Daw May Thida</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">#SF-2025-9515</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[11px] font-semibold flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+            Room Conflict
+          </span>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-3">
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Requested</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">Suite 412 (Booked)</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Stay Schedule</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">20–23 Oct (3N)</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Prepaid Total</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface font-mono">1,020,000 MMK</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Payment Slip</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">WavePay Sent</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-error text-[12px]">
+<span class="material-symbols-outlined text-[15px]">event_busy</span>
+<span>Room 412 occupied. Upgrade 414 ok.</span>
+</div>
+<span class="text-secondary font-semibold">Review &amp; Reassign</span>
+</div>
+</div>
+<!-- Item 4: Confirmed Historical Entry -->
+<div class="bg-surface-container-lowest/80 rounded-xl p-4 shadow-sm opacity-85 border border-outline-variant/40">
+<div class="flex items-start justify-between gap-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm font-semibold text-on-surface">Jean-Luc Meyer</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">#SF-2025-9508</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+            Confirmed — QR Issued
+          </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Governor Suite 501 • 19–24 Oct (5N)</span>
+<span class="font-mono text-on-surface">Pass: #QP-501-88</span>
+</div>
+</div>
+<!-- Item 5: Rejected Request -->
+<div class="bg-surface-container-lowest/60 rounded-xl p-4 shadow-sm opacity-60 border border-outline-variant/30">
+<div class="flex items-start justify-between gap-3 mb-1">
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm font-semibold text-on-surface">Aung Kyaw Min</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">#SF-2025-9499</span>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">
+            Rejected — Ineligible &gt;24h
+          </span>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm">
+          Standard Twin 102 • Check-in: 25 Oct • Policy breach
+        </div>
+</div>
+</div>
+<!-- RIGHT PANEL: Dedicated Payment Proof & Verification Workbench (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl shadow-lg border border-outline-variant/60 p-6 space-y-5 sticky top-24">
+<!-- Panel Header & Primary Meta with Payment Status Badge -->
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-4 border-b border-surface-container-high">
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">#SF-2025-9510</span>
+<!-- Current Payment Status Badge -->
+<span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-label-sm text-label-sm font-bold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
+              Proof Uploaded — Awaiting Verification
+            </span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-title-sm text-title-sm text-on-surface font-bold">Thant Zin Oo</span>
+<span class="text-outline">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">NRC: 12/LAMATA(N)089211</span>
+<span class="text-outline">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">+95 9 798 123 456</span>
+</div>
+<!-- State Reference Chips -->
+<div class="flex items-center gap-1.5 mt-2 flex-wrap">
+<span class="text-[11px] text-on-surface-variant font-medium">Status States:</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-surface-container text-on-surface-variant">Payment Pending</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-200/70 text-amber-900 ring-1 ring-amber-400">Proof Uploaded — Awaiting Verification</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-emerald-50 text-emerald-800">Verified</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-rose-50 text-rose-800">Rejected — New Proof Required</span>
+</div>
+</div>
+<div class="flex sm:flex-col items-baseline sm:items-end justify-between sm:justify-start gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Folio Total Due</span>
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface font-mono text-secondary">759,000 MMK</span>
+<span class="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">paid</span> Prepaid Booking
+            </span>
+</div>
+</div>
+<!-- Workflow Pipeline Tracker -->
+<div class="bg-surface-container-low rounded-xl p-3">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">
+          Verification Pipeline
+        </span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Step 3 of 4: Staff Audit Active</span>
+</div>
+<div class="grid grid-cols-4 gap-1 text-center relative">
+<!-- Step 1 -->
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-[11px] mb-1">
+              ✓
+            </div>
+<span class="font-label-sm text-[10px] text-on-surface font-medium leading-tight">Request In</span>
+<span class="text-[9px] text-on-surface-variant">14:15 MMT</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-[11px] mb-1">
+              ✓
+            </div>
+<span class="font-label-sm text-[10px] text-on-surface font-medium leading-tight">Room Locked</span>
+<span class="text-[9px] text-on-surface-variant">Suite 304 (15m lock)</span>
+</div>
+<!-- Step 3 (Current) -->
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center font-label-sm text-[11px] mb-1 ring-4 ring-amber-200 animate-pulse">
+              ●
+            </div>
+<span class="font-label-sm text-[10px] text-amber-950 font-bold leading-tight">Payment Proof</span>
+<span class="text-[9px] text-amber-800">Staff Audit Pending</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center opacity-50">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-sm text-[11px] mb-1">
+              4
+            </div>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-medium leading-tight">QR Check-in Pass</span>
+<span class="text-[9px] text-on-surface-variant">Dispatched upon match</span>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- DEDICATED COMPREHENSIVE PAYMENT PROOF & VERIFICATION WORKBENCH (2 COLUMNS) -->
+<!-- ========================================================================= -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">rule</span>
+<h2 class="font-title-sm text-title-sm font-bold text-on-surface">Payment Proof &amp; Verification Workbench</h2>
+</div>
+<span class="text-xs bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant font-mono">
+          Settlement Gateway: KBZPay QR
+        </span>
+</div>
+<!-- Security Guard Warning -->
+<div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 font-body-sm text-[12px] flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-amber-600 shrink-0 mt-0.5">warning</span>
+<div class="space-y-0.5">
+<span class="font-bold block">⚠️ Anti-Fraud Security Protocol:</span>
+<span>Customer upload is supporting evidence only — not definitive proof of payment. Do not trust screenshots alone. Always verify match with the automated bank/merchant ledger below before confirmation.</span>
+</div>
+</div>
+<!-- Side-by-side verification workbench: Left (Customer Screenshot) vs Right (Audit Comparison) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+<!-- LEFT COLUMN: Customer-Uploaded Payment Screenshot (5 cols) -->
+<div class="md:col-span-5 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] uppercase font-bold text-on-surface-variant tracking-wider">Customer Upload</span>
+<span class="inline-flex items-center gap-1 text-[11px] bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px] text-secondary">schedule</span>
+            Uploaded: 18 Oct, 14:21
+          </span>
+</div>
+<!-- Multi-screenshot switcher / tabs -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-container-low rounded-lg text-xs" id="slip-tabs">
+<button class="flex-1 py-1 px-2 rounded-md bg-surface-container-lowest shadow-sm font-semibold text-on-surface text-center text-[11px] border border-outline-variant/40" id="tab-slip-1" onclick="switchSlip(1)">
+            Slip 1 (Receipt)
+          </button>
+<button class="flex-1 py-1 px-2 rounded-md text-on-surface-variant hover:text-on-surface text-center text-[11px] transition-colors" id="tab-slip-2" onclick="switchSlip(2)">
+            Slip 2 (SMS / App)
+          </button>
+</div>
+<!-- Realistic Mock KBZPay Transfer Slip Screenshot Card -->
+<div class="relative bg-surface-container-lowest border-2 border-outline-variant/80 rounded-xl overflow-hidden shadow-sm group" id="slip-card-container">
+<!-- Mobile Slip Phone Header Mock -->
+<div class="bg-[#003893] text-white px-3 py-2 flex items-center justify-between text-[11px] font-semibold">
+<div class="flex items-center gap-1.5">
+<div class="w-4 h-4 rounded-full bg-white flex items-center justify-center">
+<span class="text-[#003893] font-bold text-[9px]">K</span>
+</div>
+<span>KBZPay Transfer Receipt</span>
+</div>
+<span class="text-[10px] text-blue-200">Success</span>
+</div>
+<!-- Mock Slip Body -->
+<div class="p-3 bg-white space-y-2.5 text-[12px] text-slate-800" id="slip-content">
+<div class="text-center py-1 border-b border-dashed border-slate-200">
+<span class="text-[10px] uppercase text-slate-400 font-semibold tracking-wider block">Transfer Amount</span>
+<span class="font-headline-md text-headline-md font-bold text-[#003893] font-mono">759,000 MMK</span>
+<span class="text-[10px] text-emerald-600 font-semibold block mt-0.5">● Transaction Completed</span>
+</div>
+<div class="space-y-1.5 font-mono text-[11px]">
+<div class="flex justify-between items-start">
+<span class="text-slate-400">Recipient:</span>
+<span class="font-semibold text-right text-slate-900">StayFlow Hospitality Co., Ltd</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-400">Payer Name:</span>
+<span class="font-semibold text-slate-900">Thant Zin Oo</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-400">Txn Reference:</span>
+<span class="font-bold text-[#003893]">KBZ-PAY-2025-9481-QK9</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-400">Date &amp; Time:</span>
+<span class="text-slate-700">18 Oct 2025, 14:18 MMT</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-400">Fee / Channel:</span>
+<span class="text-slate-700">0 MMK • Quick Pay QR</span>
+</div>
+</div>
+<!-- Watermark Stamp Indicator -->
+<div class="border border-emerald-500/40 bg-emerald-50 rounded p-1 text-center text-emerald-800 text-[10px] font-semibold flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>Customer Digital Receipt Verified Stamp</span>
+</div>
+</div>
+<!-- Interactive overlay on hover / click -->
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 p-4">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-[11px] font-semibold shadow hover:bg-surface-container flex items-center gap-1" onclick="openZoomModal()">
+<span class="material-symbols-outlined text-[15px]">zoom_in</span> Zoom In
+            </button>
+<a class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-[11px] font-semibold shadow hover:bg-surface-container flex items-center gap-1" href="#download-slip" onclick="simulateDownload(event)">
+<span class="material-symbols-outlined text-[15px]">download</span> Save
+            </a>
+</div>
+</div>
+<!-- Quick Utility Bar under Slip -->
+<div class="flex items-center justify-between text-[11px] px-1">
+<div class="flex items-center gap-1.5">
+<button class="text-secondary hover:underline font-semibold flex items-center gap-0.5" onclick="openZoomModal()">
+<span class="material-symbols-outlined text-[14px]">fullscreen</span>
+            Full-screen / Zoom
+          </button>
+<span class="text-outline-variant">•</span>
+<button class="text-on-surface-variant hover:text-on-surface flex items-center gap-0.5" onclick="simulateDownload(event)">
+<span class="material-symbols-outlined text-[14px]">download</span> Download
+          </button>
+</div>
+<span class="text-[10px] text-on-surface-variant font-mono">PNG • 1.4 MB</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Payment Information Comparison & Audit Reconciliation (7 cols) -->
+<div class="md:col-span-7 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[11px] uppercase font-bold text-on-surface-variant tracking-wider">Reconciliation Audit</span>
+<span class="inline-flex items-center gap-1 text-[11px] bg-emerald-100 text-emerald-900 font-bold px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+            Direct Settlement Linked
+          </span>
+</div>
+<!-- Side-by-side or structured comparison table contrasting Claim vs Merchant Record -->
+<div class="rounded-xl border border-outline-variant/80 overflow-hidden bg-surface-container-lowest text-[11px]">
+<!-- Table Header -->
+<div class="grid grid-cols-12 bg-surface-container-low/80 py-2 px-3 font-semibold text-on-surface-variant border-b border-outline-variant/60">
+<div class="col-span-4 uppercase text-[10px]">Data Point</div>
+<div class="col-span-4 uppercase text-[10px] text-amber-900 font-bold">Customer Claim</div>
+<div class="col-span-4 uppercase text-[10px] text-secondary font-bold">Bank / API Ledger</div>
+</div>
+<div class="divide-y divide-outline-variant/40">
+<!-- Row 1: Booking Reference -->
+<div class="grid grid-cols-12 py-2 px-3 items-center">
+<div class="col-span-4 font-medium text-on-surface-variant">Booking Ref</div>
+<div class="col-span-4 font-mono text-on-surface">#SF-2025-9510</div>
+<div class="col-span-4 font-mono font-bold text-secondary flex items-center gap-1">
+<span>#SF-2025-9510</span>
+<span class="text-emerald-600 font-bold text-[12px]">✓</span>
+</div>
+</div>
+<!-- Row 2: Guest / Payer Name -->
+<div class="grid grid-cols-12 py-2 px-3 items-center bg-surface-container-low/20">
+<div class="col-span-4 font-medium text-on-surface-variant">Guest / Payer</div>
+<div class="col-span-4 text-on-surface truncate">Thant Zin Oo</div>
+<div class="col-span-4 font-semibold text-on-surface flex items-center gap-1 truncate">
+<span>Thant Zin Oo</span>
+<span class="text-emerald-600 font-bold text-[12px]">✓</span>
+</div>
+</div>
+<!-- Row 3: Amount -->
+<div class="grid grid-cols-12 py-2 px-3 items-center bg-emerald-50/40">
+<div class="col-span-4 font-medium text-on-surface-variant">Expected vs Paid</div>
+<div class="col-span-4 font-mono font-semibold text-on-surface">759,000 MMK</div>
+<div class="col-span-4 font-mono font-bold text-secondary flex items-center gap-1">
+<span>759,000 MMK</span>
+<span class="px-1 py-0.2 bg-emerald-100 text-emerald-900 rounded font-bold text-[9px]">EXACT</span>
+</div>
+</div>
+<!-- Row 4: Transaction ID -->
+<div class="grid grid-cols-12 py-2 px-3 items-center">
+<div class="col-span-4 font-medium text-on-surface-variant">Transaction ID</div>
+<div class="col-span-4 font-mono text-[10px] text-on-surface truncate" title="KBZ-PAY-2025-9481-QK9">
+                  ...9481-QK9
+                </div>
+<div class="col-span-4 font-mono text-[10px] font-bold text-secondary flex items-center gap-1 truncate" title="TXN-KBZ-89210-2025">
+<span>TXN-KBZ-89210</span>
+<span class="text-emerald-600 font-bold text-[12px]">✓</span>
+</div>
+</div>
+<!-- Row 5: Provider -->
+<div class="grid grid-cols-12 py-2 px-3 items-center bg-surface-container-low/20">
+<div class="col-span-4 font-medium text-on-surface-variant">Provider / Channel</div>
+<div class="col-span-4 text-on-surface">KBZPay App</div>
+<div class="col-span-4 font-medium text-secondary flex items-center gap-1">
+<span>KBZ Merchant QR</span>
+<span class="text-emerald-600 font-bold text-[12px]">✓</span>
+</div>
+</div>
+<!-- Row 6: Timestamp -->
+<div class="grid grid-cols-12 py-2 px-3 items-center">
+<div class="col-span-4 font-medium text-on-surface-variant">Timestamp</div>
+<div class="col-span-4 text-on-surface font-mono text-[10px]">18 Oct, 14:18 MMT</div>
+<div class="col-span-4 text-secondary font-mono text-[10px] font-semibold flex items-center gap-1">
+<span>18 Oct, 14:19:02</span>
+<span class="text-emerald-600 font-bold text-[12px]">✓</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Merchant Gateway Ledger Callout Box -->
+<div class="bg-surface-container-low rounded-xl p-3 border border-outline-variant/60 space-y-1.5">
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span class="font-semibold text-on-surface">KBZPay Direct Merchant API</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 font-bold text-[10px]">
+              SETTLED 100% (14:19 MMT)
+            </span>
+</div>
+<div class="text-[11px] text-on-surface-variant flex items-center justify-between font-mono">
+<span>Settlement Account: StayFlow Yangon (Desk 01)</span>
+<span class="font-bold text-on-surface">Batch Ref: #BT-88912</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Room & Stay Details Summary -->
+<div class="bg-surface-container-low rounded-xl p-3 space-y-2 border border-outline-variant/50">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Stay Particulars</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Deluxe Azure Suite (Room 304)</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<span class="text-on-surface-variant block text-[11px]">Dates &amp; Occupancy</span>
+<span class="font-semibold text-on-surface">18–21 Oct (3 Nights) • 2 Adults</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<span class="text-on-surface-variant block text-[11px]">Breakdown</span>
+<span class="font-semibold text-on-surface font-mono">220,000 × 3 + 15% Tax</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded-lg">
+<span class="text-on-surface-variant block text-[11px]">Room Lock Hold</span>
+<span class="font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock_clock</span> 03m 42s remaining
+            </span>
+</div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest text-on-surface-variant font-body-sm text-[12px] flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-amber-600 shrink-0 mt-0.5">celebration</span>
+<span><strong>Guest Special Request:</strong> "Celebrating wedding anniversary. Requesting quiet high floor with harbor view. Arriving via private transfer ~14:00."</span>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- STAFF VERIFICATION ACTIONS -->
+<!-- ========================================================================= -->
+<div class="space-y-2.5 pt-1">
+<!-- Action 1: Mark as Verified (Primary) -->
+<button class="w-full py-3 px-4 rounded-xl bg-primary text-on-primary hover:bg-primary-container transition-all shadow-md flex items-center justify-center gap-2 group font-label-md text-label-md font-semibold" id="btn-verify-primary" onclick="simulateAction('confirmed')">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed group-hover:scale-110 transition-transform">check_circle</span>
+<span>Mark as Verified &amp; Accept Booking</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<!-- Action 2: Reject Payment Proof -->
+<button class="py-2.5 px-3 rounded-xl bg-surface-container hover:bg-error-container hover:text-on-error-container text-on-surface transition-colors font-label-md text-label-md font-medium flex items-center justify-center gap-1.5 border border-outline-variant/60" id="btn-reject-trigger" onclick="openRejectModal()">
+<span class="material-symbols-outlined text-[16px] text-error">cancel</span>
+<span>Reject Payment Proof</span>
+</button>
+<!-- Action 3: Request New Screenshot -->
+<button class="py-2.5 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors font-label-md text-label-md font-medium flex items-center justify-center gap-1.5 border border-outline-variant/60" id="btn-request-reupload" onclick="openRequestModal()">
+<span class="material-symbols-outlined text-[16px] text-secondary">forward_to_inbox</span>
+<span>Request New Screenshot</span>
+</button>
+</div>
+</div>
+<!-- Prototype State Simulation Controls -->
+<div class="bg-surface-container-low rounded-xl p-2.5 space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Front Desk Staff Simulation Controls</span>
+<span class="font-label-sm text-[10px] text-secondary font-mono">Interactive Demo</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5">
+<button class="p-2 rounded-lg bg-surface-container-lowest hover:bg-emerald-50 text-[11px] font-medium text-emerald-900 shadow-sm text-center transition-all leading-tight border border-outline-variant/40" onclick="simulateAction('confirmed')">
+            Mark Verified (Pass QR)
+          </button>
+<button class="p-2 rounded-lg bg-surface-container-lowest hover:bg-error-container text-[11px] font-medium text-on-error-container shadow-sm text-center transition-all leading-tight border border-outline-variant/40" onclick="openRejectModal()">
+            Reject Proof Modal
+          </button>
+<button class="p-2 rounded-lg bg-surface-container-lowest hover:bg-amber-100 text-[11px] font-medium text-amber-950 shadow-sm text-center transition-all leading-tight border border-outline-variant/40" onclick="simulateAction('mismatch')">
+            Amount Mismatch
+          </button>
+</div>
+</div>
+<!-- Confirmation dialog / Staff Audit Footer -->
+<div class="pt-1 flex flex-col sm:flex-row sm:items-center justify-between text-on-surface-variant font-label-sm text-[11px] border-t border-outline-variant/40 pt-3 gap-1">
+<span>Reviewer: <strong>Daw Nu Nu (#FD-994)</strong></span>
+<span>Verification Time: <strong class="text-amber-800">Pending Decision</strong></span>
+<span>Station: Reception Desk 01</span>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODALS AND DIALOGS -->
+<!-- ========================================================================= -->
+<!-- 1. GENERAL ACTION FEEDBACK MODAL (Success / Mismatch / Conflict) -->
+<div class="fixed inset-0 bg-primary-container/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" id="action-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-outline-variant">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-fixed-variant flex items-center justify-center mx-auto" id="modal-icon-wrap">
+<span class="material-symbols-outlined text-[28px]" id="modal-icon">check_circle</span>
+</div>
+<div class="text-center space-y-1">
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface" id="modal-title">Booking #SF-2025-9510 Confirmed</h3>
+<p class="font-body-md text-body-md text-on-surface-variant" id="modal-desc">
+          Payment verified with KBZPay API. Deluxe Azure Suite 304 successfully confirmed. Customer QR pass #QP-304-9510 dispatched to guest mobile.
+        </p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl text-xs space-y-1 text-on-surface-variant" id="modal-audit-stamp">
+<div class="flex justify-between font-mono">
+<span>Audit Reviewer:</span>
+<span class="text-on-surface font-semibold">Daw Nu Nu (#FD-994)</span>
+</div>
+<div class="flex justify-between font-mono">
+<span>Decision Time:</span>
+<span class="text-on-surface font-semibold">18 Oct 2025, 14:23:40 MMT</span>
+</div>
+</div>
+<div class="pt-2 flex gap-2">
+<button class="flex-1 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors" onclick="closeModal()">
+          Return to Queue
+        </button>
+</div>
+</div>
+</div>
+<!-- 2. REJECT PAYMENT PROOF MODAL (With reason selector) -->
+<div class="fixed inset-0 bg-primary-container/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" id="reject-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-outline-variant">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/60">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface">Reject Payment Proof</h3>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Booking #SF-2025-9510</span>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface" onclick="closeRejectModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-3">
+<div>
+<label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1.5">
+            Select Rejection Reason:
+          </label>
+<div class="space-y-2">
+<label class="flex items-center gap-2.5 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer text-xs">
+<input class="text-error focus:ring-error rounded" name="reject-reason" type="radio" value="unreadable"/>
+<span class="font-medium text-on-surface">Unreadable or blurry screenshot</span>
+</label>
+<label class="flex items-center gap-2.5 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer text-xs">
+<input class="text-error focus:ring-error rounded" name="reject-reason" type="radio" value="mismatch_amount"/>
+<span class="font-medium text-on-surface">Incorrect transfer amount</span>
+</label>
+<label class="flex items-center gap-2.5 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer text-xs">
+<input checked="" class="text-error focus:ring-error rounded" name="reject-reason" type="radio" value="mismatch_txn"/>
+<span class="font-medium text-on-surface">Mismatched transaction details / Reference not in bank</span>
+</label>
+<label class="flex items-center gap-2.5 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer text-xs">
+<input class="text-error focus:ring-error rounded" name="reject-reason" type="radio" value="fraud"/>
+<span class="font-medium text-on-surface">Suspected altered / fraudulent slip</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">
+            Staff Note for Guest (Sent via SMS &amp; Portal):
+          </label>
+<textarea class="w-full text-xs p-2.5 rounded-lg border border-outline-variant bg-surface-container-low focus:bg-surface-container-lowest focus:ring-1 focus:ring-error focus:outline-none" rows="2">Transaction reference KBZ-PAY-2025-9481 does not match current merchant settlement ledger. Please provide official in-app transaction statement.</textarea>
+</div>
+</div>
+<div class="pt-2 flex gap-2">
+<button class="flex-1 py-2 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="closeRejectModal()">
+          Cancel
+        </button>
+<button class="flex-1 py-2 rounded-xl bg-error text-on-error font-label-md text-label-md font-semibold hover:bg-red-700 transition-colors" onclick="submitRejection()">
+          Confirm Rejection
+        </button>
+</div>
+</div>
+</div>
+<!-- 3. REQUEST NEW SCREENSHOT MODAL -->
+<div class="fixed inset-0 bg-primary-container/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" id="request-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-outline-variant">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/60">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-fixed-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">contact_phone</span>
+</div>
+<div>
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface">Request New Screenshot</h3>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Notify Guest: Thant Zin Oo (+95 9 798 123 456)</span>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface" onclick="closeRequestModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-3 text-xs">
+<p class="text-on-surface-variant">
+          An automated re-upload link with instructions will be dispatched to the guest via SMS and Viber. Room 304 will remain held for an additional 15 minutes.
+        </p>
+<div class="bg-surface-container-low p-3 rounded-xl space-y-2">
+<span class="font-semibold text-on-surface block">Dispatch Channels:</span>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="text-secondary rounded" type="checkbox"/>
+<span>Instant SMS (+95 9 798 123 456)</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="text-secondary rounded" type="checkbox"/>
+<span>Email notification (thant.zin@example.mm)</span>
+</label>
+</div>
+<div>
+<label class="block font-semibold text-on-surface mb-1">Upload Link Expiry:</label>
+<select class="w-full text-xs p-2 rounded-lg border border-outline-variant bg-surface-container-low">
+<option>15 Minutes (Room lock extension)</option>
+<option>30 Minutes</option>
+<option>1 Hour</option>
+</select>
+</div>
+</div>
+<div class="pt-2 flex gap-2">
+<button class="flex-1 py-2 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="closeRequestModal()">
+          Cancel
+        </button>
+<button class="flex-1 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors" onclick="submitRequestReupload()">
+          Send Prompt
+        </button>
+</div>
+</div>
+</div>
+<!-- 4. FULLSCREEN / ZOOM SLIP PREVIEW MODAL -->
+<div class="fixed inset-0 bg-primary-container/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4" id="zoom-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-lg w-full p-5 shadow-2xl space-y-4 border border-outline-variant">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">zoom_in</span>
+<div>
+<h3 class="font-title-sm text-title-sm font-bold text-on-surface">KBZPay Transfer Slip Preview</h3>
+<span class="font-label-sm text-[11px] text-on-surface-variant">High-Resolution Customer Evidence</span>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface" onclick="closeZoomModal()">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<!-- Expanded Detailed Slip View -->
+<div class="bg-white border-2 border-slate-300 rounded-xl p-5 space-y-4 text-slate-800 shadow-inner">
+<div class="flex items-center justify-between border-b pb-3 border-slate-200">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-[#003893] text-white flex items-center justify-center font-bold text-xs">
+                K
+              </div>
+<div>
+<div class="font-bold text-sm text-[#003893]">KBZPay Official Receipt</div>
+<div class="text-[10px] text-slate-500">Transaction Completed • App Version 5.4.1</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">SUCCESS</span>
+</div>
+<div class="text-center py-2">
+<div class="text-xs text-slate-500 uppercase font-semibold">Payment Amount</div>
+<div class="text-2xl font-bold font-mono text-[#003893]">759,000 MMK</div>
+<div class="text-[11px] text-slate-600 mt-1">Seven Hundred Fifty-Nine Thousand Kyats Only</div>
+</div>
+<div class="space-y-2 text-xs font-mono bg-slate-50 p-3 rounded-lg border border-slate-200">
+<div class="flex justify-between">
+<span class="text-slate-500">Recipient:</span>
+<span class="font-bold text-slate-900">StayFlow Hospitality Co., Ltd</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Merchant Account:</span>
+<span class="text-slate-800">09798000112 (Yangon Heritage)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Payer Name:</span>
+<span class="font-bold text-slate-900">Thant Zin Oo</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Payer Wallet:</span>
+<span class="text-slate-800">09798***456 (Level 2 Verified)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Transaction ID:</span>
+<span class="font-bold text-[#003893]">KBZ-PAY-2025-9481-QK9</span>
+</div>
+<div class="flex justify-between">
+<span class="text-slate-500">Date &amp; Time:</span>
+<span class="text-slate-800">18 Oct 2025, 14:18:22 MMT</span>
+</div>
+</div>
+<div class="text-[11px] text-center text-slate-500">
+            QR Reference Code: <span class="font-mono font-semibold">SF-2025-9510-DELUXE304</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-2">
+<span class="text-xs text-on-surface-variant font-mono">MD5: 8a7c29e1f... • Verified Unaltered</span>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-xs font-semibold hover:bg-surface-container-high transition-colors" onclick="simulateDownload(event)">
+            Download File
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-xs font-semibold hover:bg-primary-container transition-colors" onclick="closeZoomModal()">
+            Done Inspecting
+          </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE SCRIPTS -->
+<script>
+  function switchSlip(slipNumber) {
+    const tab1 = document.getElementById('tab-slip-1');
+    const tab2 = document.getElementById('tab-slip-2');
+    const content = document.getElementById('slip-content');
+
+    if (slipNumber === 1) {
+      tab1.className = 'flex-1 py-1 px-2 rounded-md bg-surface-container-lowest shadow-sm font-semibold text-on-surface text-center text-[11px] border border-outline-variant/40';
+      tab2.className = 'flex-1 py-1 px-2 rounded-md text-on-surface-variant hover:text-on-surface text-center text-[11px] transition-colors';
+      content.innerHTML = `
+        <div class="text-center py-1 border-b border-dashed border-slate-200">
+          <span class="text-[10px] uppercase text-slate-400 font-semibold tracking-wider block">Transfer Amount</span>
+          <span class="font-headline-md text-headline-md font-bold text-[#003893] font-mono">759,000 MMK</span>
+          <span class="text-[10px] text-emerald-600 font-semibold block mt-0.5">● Transaction Completed</span>
+        </div>
+        <div class="space-y-1.5 font-mono text-[11px]">
+          <div class="flex justify-between items-start">
+            <span class="text-slate-400">Recipient:</span>
+            <span class="font-semibold text-right text-slate-900">StayFlow Hospitality Co., Ltd</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Payer Name:</span>
+            <span class="font-semibold text-slate-900">Thant Zin Oo</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Txn Reference:</span>
+            <span class="font-bold text-[#003893]">KBZ-PAY-2025-9481-QK9</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Date &amp; Time:</span>
+            <span class="text-slate-700">18 Oct 2025, 14:18 MMT</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Fee / Channel:</span>
+            <span class="text-slate-700">0 MMK • Quick Pay QR</span>
+          </div>
+        </div>
+        <div class="border border-emerald-500/40 bg-emerald-50 rounded p-1 text-center text-emerald-800 text-[10px] font-semibold flex items-center justify-center gap-1">
+          <span class="material-symbols-outlined text-[13px]">verified</span>
+          <span>Customer Digital Receipt Verified Stamp</span>
+        </div>
+      `;
+    } else {
+      tab2.className = 'flex-1 py-1 px-2 rounded-md bg-surface-container-lowest shadow-sm font-semibold text-on-surface text-center text-[11px] border border-outline-variant/40';
+      tab1.className = 'flex-1 py-1 px-2 rounded-md text-on-surface-variant hover:text-on-surface text-center text-[11px] transition-colors';
+      content.innerHTML = `
+        <div class="text-center py-1 border-b border-dashed border-slate-200">
+          <span class="text-[10px] uppercase text-slate-400 font-semibold tracking-wider block">KBZPay SMS Push Confirmation</span>
+          <span class="font-headline-md text-headline-md font-bold text-slate-800 font-mono text-sm">SMS Alert #KBZ-8921</span>
+          <span class="text-[10px] text-emerald-600 font-semibold block mt-0.5">● Received on Device 14:18:28</span>
+        </div>
+        <div class="bg-slate-100 p-2.5 rounded text-[11px] font-mono text-slate-700 leading-relaxed border border-slate-200">
+          "KBZPay: You paid 759,000 MMK to StayFlow Hospitality (Yangon Desk 01). Ref: KBZ-PAY-2025-9481-QK9. Bal: 2,410,500 MMK. 18/10 14:18."
+        </div>
+        <div class="border border-slate-300 bg-slate-50 rounded p-1 text-center text-slate-600 text-[10px] flex items-center justify-center gap-1">
+          <span class="material-symbols-outlined text-[13px]">sms</span>
+          <span>Secondary Cross-Verification Supporting SMS</span>
+        </div>
+      `;
+    }
+  }
+
+  function simulateAction(type) {
+    const modal = document.getElementById('action-modal');
+    const title = document.getElementById('modal-title');
+    const desc = document.getElementById('modal-desc');
+    const icon = document.getElementById('modal-icon');
+    const iconWrap = document.getElementById('modal-icon-wrap');
+
+    if (type === 'confirmed') {
+      iconWrap.className = 'w-12 h-12 rounded-full bg-emerald-100 text-emerald-900 flex items-center justify-center mx-auto';
+      icon.innerText = 'verified';
+      title.innerText = 'Payment Proof Verified & Booking Accepted!';
+      desc.innerText = 'Customer slip matches KBZPay Gateway record TXN-KBZ-89210-2025 for 759,000 MMK. Room 304 successfully locked and guest QR check-in pass #QP-304-9510 dispatched.';
+    } else if (type === 'conflict') {
+      iconWrap.className = 'w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center mx-auto';
+      icon.innerText = 'priority_high';
+      title.innerText = 'Real-Time Inventory Conflict';
+      desc.innerText = 'Deluxe Azure Suite 304 was just modified in PMS. Please assign alternative Suite 306 before accepting.';
+    } else if (type === 'mismatch') {
+      iconWrap.className = 'w-12 h-12 rounded-full bg-amber-100 text-amber-950 flex items-center justify-center mx-auto';
+      icon.innerText = 'gpp_bad';
+      title.innerText = 'Settlement Amount Mismatch Detected';
+      desc.innerText = 'Bank Gateway captured 700,000 MMK instead of required 759,000 MMK (59,000 MMK deficit). Proof flagged and guest prompted for top-up.';
+    }
+
+    modal.classList.remove('hidden');
+  }
+
+  function closeModal() {
+    document.getElementById('action-modal').classList.add('hidden');
+  }
+
+  function openRejectModal() {
+    document.getElementById('reject-modal').classList.remove('hidden');
+  }
+
+  function closeRejectModal() {
+    document.getElementById('reject-modal').classList.add('hidden');
+  }
+
+  function submitRejection() {
+    closeRejectModal();
+    const modal = document.getElementById('action-modal');
+    const title = document.getElementById('modal-title');
+    const desc = document.getElementById('modal-desc');
+    const icon = document.getElementById('modal-icon');
+    const iconWrap = document.getElementById('modal-icon-wrap');
+
+    iconWrap.className = 'w-12 h-12 rounded-full bg-rose-100 text-rose-900 flex items-center justify-center mx-auto';
+    icon.innerText = 'cancel';
+    title.innerText = 'Payment Proof Rejected';
+    desc.innerText = 'Rejection reason registered by Daw Nu Nu (#FD-994). Room lock extended by 15 minutes. Notification dispatched to guest Thant Zin Oo.';
+    modal.classList.remove('hidden');
+  }
+
+  function openRequestModal() {
+    document.getElementById('request-modal').classList.remove('hidden');
+  }
+
+  function closeRequestModal() {
+    document.getElementById('request-modal').classList.add('hidden');
+  }
+
+  function submitRequestReupload() {
+    closeRequestModal();
+    const modal = document.getElementById('action-modal');
+    const title = document.getElementById('modal-title');
+    const desc = document.getElementById('modal-desc');
+    const icon = document.getElementById('modal-icon');
+    const iconWrap = document.getElementById('modal-icon-wrap');
+
+    iconWrap.className = 'w-12 h-12 rounded-full bg-secondary-container text-on-secondary-fixed-variant flex items-center justify-center mx-auto';
+    icon.innerText = 'forward_to_inbox';
+    title.innerText = 'Re-upload Prompt Sent to Guest';
+    desc.innerText = 'SMS & Email link sent to +95 9 798 123 456. Status updated to "Rejected — New Proof Required". Room hold extended by 15m.';
+    modal.classList.remove('hidden');
+  }
+
+  function openZoomModal() {
+    document.getElementById('zoom-modal').classList.remove('hidden');
+  }
+
+  function closeZoomModal() {
+    document.getElementById('zoom-modal').classList.add('hidden');
+  }
+
+  function simulateDownload(e) {
+    if (e) e.preventDefault();
+    alert('Downloading payment_proof_SF-2025-9510.png (1.4 MB)...');
+  }
+</script>
+</main>
+</div>
+</body></html>

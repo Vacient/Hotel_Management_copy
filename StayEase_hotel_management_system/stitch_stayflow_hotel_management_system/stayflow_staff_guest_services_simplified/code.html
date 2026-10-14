@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base { 
+      html, body { margin: 0; padding: 0; } 
+      body { overscroll-behavior: none; } 
+    } 
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-thumb { background: #d8e3fb; border-radius: 9999px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#525f78",
+            "on-surface-variant": "#44474d",
+            "secondary-container": "#86f2e4",
+            "on-primary-fixed": "#0e1c32",
+            "on-tertiary": "#ffffff",
+            "background": "#f9f9ff",
+            "tertiary-fixed": "#ffdcc3",
+            "surface-container": "#e7eeff",
+            "tertiary-fixed-dim": "#ffb77d",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#d8e3fb",
+            "on-secondary-container": "#006f66",
+            "primary": "#000000",
+            "on-secondary-fixed": "#00201d",
+            "inverse-surface": "#263143",
+            "on-error": "#ffffff",
+            "surface": "#f9f9ff",
+            "on-primary-container": "#77849f",
+            "inverse-primary": "#b9c7e4",
+            "on-secondary": "#ffffff",
+            "outline": "#75777e",
+            "secondary": "#006a61",
+            "tertiary-container": "#2f1500",
+            "primary-fixed": "#d6e3ff",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#2f1500",
+            "on-primary-fixed-variant": "#3a475f",
+            "on-background": "#111c2d",
+            "surface-container-low": "#f0f3ff",
+            "surface-variant": "#d8e3fb",
+            "tertiary": "#000000",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "surface-container-high": "#dee8ff",
+            "primary-fixed-dim": "#b9c7e4",
+            "on-secondary-fixed-variant": "#005049",
+            "inverse-on-surface": "#ecf1ff",
+            "surface-dim": "#cfdaf2",
+            "primary-container": "#0e1c32",
+            "on-tertiary-container": "#c76c00",
+            "secondary-fixed-dim": "#6bd8cb",
+            "on-error-container": "#93000a",
+            "on-surface": "#111c2d",
+            "outline-variant": "#c5c6cd",
+            "surface-bright": "#f9f9ff",
+            "secondary-fixed": "#89f5e7",
+            "surface-container-lowest": "#ffffff"
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-background font-sans text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- ================= CLEAN SIDEBAR ================= -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-surface-container-highest/60 z-30 flex flex-col justify-between">
+<div class="flex flex-col">
+<!-- Brand & Property -->
+<div class="h-16 px-5 flex items-center gap-3 border-b border-surface-container/60">
+<div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">hotel_class</span>
+</div>
+<div class="flex flex-col">
+<span class="text-base font-bold text-on-surface tracking-tight leading-snug">StayFlow</span>
+<span class="text-xs text-on-surface-variant font-medium">Front Desk Ops</span>
+</div>
+</div>
+<!-- Property Indicator -->
+<div class="px-4 py-3">
+<div class="px-3 py-2 rounded-xl bg-surface-container-low flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">domain</span>
+<div class="flex flex-col leading-tight">
+<span class="text-xs font-semibold text-on-surface">Yangon Heritage</span>
+<span class="text-[11px] text-on-surface-variant">Main Wing Desk</span>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="px-3 pt-2">
+<span class="px-3 text-[11px] font-semibold text-on-surface-variant/70 uppercase tracking-wider">Desk Menu</span>
+<nav class="mt-2 space-y-1">
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">book_online</span>
+<span>Reservations</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+<span>QR Check-in</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-primary-container text-on-primary shadow-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">concierge</span>
+<span>Guest Services</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">key_off</span>
+<span>Check-out</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Sidebar Footer -->
+<div class="p-4 border-t border-surface-container/60 flex flex-col gap-2">
+<div class="flex items-center justify-between px-2 py-1 text-xs text-on-surface-variant">
+<span class="flex items-center gap-1.5 font-medium">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Desk 01 Active
+        </span>
+<span class="font-semibold text-on-surface">Ext 401</span>
+</div>
+<button class="flex items-center justify-center gap-2 w-full py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">logout</span>
+<span>Sign Out</span>
+</button>
+</div>
+</aside>
+<!-- ================= MAIN LAYOUT ================= -->
+<div class="pl-64">
+<!-- Clean, Uncluttered Top Bar -->
+<header class="h-16 border-b border-surface-container-highest/60 bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-20 px-8 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-secondary uppercase tracking-wider bg-secondary-container/40 px-2.5 py-1 rounded-full">Live Requests Board</span>
+<span class="text-xs text-on-surface-variant">• Front Desk Shift</span>
+</div>
+<div class="flex items-center gap-5">
+<div class="text-xs text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span>
+<span class="font-medium">09:42 AM</span>
+</div>
+<div class="h-4 w-px bg-surface-container"></div>
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-xs font-bold">
+            NN
+          </div>
+<div class="flex flex-col text-left">
+<span class="text-xs font-semibold text-on-surface leading-tight">Daw Nu Nu</span>
+<span class="text-[11px] text-on-surface-variant leading-none">Senior Receptionist</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="p-8 max-w-[1440px] mx-auto min-h-[calc(100vh-4rem)]">
+<!-- Streamlined Header & Tabs -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-surface-container/80">
+<div>
+<h1 class="text-2xl font-bold tracking-tight text-on-surface">Guest Requests</h1>
+<p class="text-sm text-on-surface-variant mt-0.5">Spacious real-time overview of current in-stay deliveries &amp; tasks</p>
+</div>
+<!-- Clean Filter Tabs & Add Request -->
+<div class="flex items-center gap-3 flex-wrap">
+<div class="inline-flex p-1 bg-surface-container-low rounded-xl border border-surface-container" id="filterTabGroup">
+<button class="tab-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-surface-container-lowest text-on-surface shadow-xs transition-all" data-filter="all" type="button">
+              All (6)
+            </button>
+<button class="tab-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-on-surface transition-all" data-filter="pending" type="button">
+              Pending (2)
+            </button>
+<button class="tab-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-on-surface transition-all" data-filter="in_progress" type="button">
+              In Progress (3)
+            </button>
+<button class="tab-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-on-surface-variant hover:text-on-surface transition-all" data-filter="completed" type="button">
+              Completed (1)
+            </button>
+</div>
+<button class="h-9 px-4 rounded-xl bg-primary-container text-on-primary hover:bg-inverse-surface transition-all text-xs font-semibold flex items-center gap-1.5 shadow-sm" id="quickAddBtn" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">add</span>
+<span>New Request</span>
+</button>
+</div>
+</div>
+<!-- ================= 3-COLUMN CALM KANBAN BOARD ================= -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-6 items-start" id="kanbanBoard">
+<!-- COLUMN 1: PENDING (Amber) -->
+<div class="kanban-column flex flex-col gap-4" data-column="pending">
+<div class="flex items-center justify-between pb-1 px-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+<h2 class="text-sm font-bold text-on-surface uppercase tracking-wider">Pending</h2>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">2</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">Needs assignment</span>
+</div>
+<!-- Card 1: Room 308 (AC) -->
+<div class="card-item bg-surface-container-lowest rounded-2xl p-5 border border-surface-container/80 shadow-sm hover:shadow-md transition-all flex flex-col gap-3.5" data-id="SR-1054" data-status="pending">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-primary-container text-on-primary tracking-wide">
+                Room 308
+              </span>
+<span class="text-xs font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span> Urgent • 12m ago
+              </span>
+</div>
+<div>
+<h3 class="text-base font-bold text-on-surface leading-tight">AC Thermostat Calibration</h3>
+<p class="text-xs text-on-surface-variant mt-1">U Kyaw Zayar • Deluxe Azure Suite</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 text-xs text-on-surface leading-relaxed">
+              “Master bedroom unit freezing at 18°C, unable to adjust upward from the wall panel.”
+            </div>
+<div class="pt-2 flex items-center justify-between border-t border-surface-container-low">
+<span class="text-xs text-on-surface-variant font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">engineering</span> Maintenance
+              </span>
+<button class="px-3.5 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-semibold flex items-center gap-1 transition-colors" onclick="advanceCard('SR-1054', 'in_progress')" type="button">
+<span>Assign Eng</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Room 512 (Minibar) -->
+<div class="card-item bg-surface-container-lowest rounded-2xl p-5 border border-surface-container/80 shadow-sm hover:shadow-md transition-all flex flex-col gap-3.5" data-id="SR-1053" data-status="pending">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-primary-container text-on-primary tracking-wide">
+                Room 512
+              </span>
+<span class="text-xs font-medium text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded-full">
+                7m ago
+              </span>
+</div>
+<div>
+<h3 class="text-base font-bold text-on-surface leading-tight">Sparkling Water &amp; Ice Bucket</h3>
+<p class="text-xs text-on-surface-variant mt-1">Elena Rostova • Presidential Villa</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 text-xs text-on-surface leading-relaxed">
+              “San Pellegrino 750ml x 2 bottles, fresh bucket of ice, and 2 crystal glasses.”
+            </div>
+<div class="pt-2 flex items-center justify-between border-t border-surface-container-low">
+<span class="text-xs text-on-surface-variant font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">room_service</span> In-Room Pantry
+              </span>
+<button class="px-3.5 py-1.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-xs font-semibold flex items-center gap-1 transition-colors" onclick="advanceCard('SR-1053', 'in_progress')" type="button">
+<span>Assign Staff</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- COLUMN 2: IN PROGRESS (Teal) -->
+<div class="kanban-column flex flex-col gap-4" data-column="in_progress">
+<div class="flex items-center justify-between pb-1 px-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+<h2 class="text-sm font-bold text-on-surface uppercase tracking-wider">In Progress</h2>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-teal-50 text-teal-800 border border-teal-200">3</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">Under active delivery</span>
+</div>
+<!-- Card 3: Room 402 (Primary Target) -->
+<div class="card-item bg-surface-container-lowest rounded-2xl p-5 border-2 border-teal-500/40 shadow-sm hover:shadow-md transition-all flex flex-col gap-3.5" data-id="SR-1049" data-status="in_progress">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-primary-container text-on-primary tracking-wide">
+                Room 402
+              </span>
+<span class="text-xs font-semibold text-teal-800 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-600 animate-ping"></span> Daw May Thu
+              </span>
+</div>
+<div>
+<h3 class="text-base font-bold text-on-surface leading-tight">Extra Towels &amp; Linens</h3>
+<p class="text-xs text-on-surface-variant mt-1">Thant Zin Oo • 12 mins ago</p>
+</div>
+<div class="p-3 rounded-xl bg-teal-50/50 border border-teal-100 text-xs text-on-surface leading-relaxed">
+              “Please provide 2 additional bath towels and 1 set of extra bathroom botanical amenities.”
+            </div>
+<div class="pt-2 flex items-center justify-between border-t border-surface-container-low">
+<span class="text-xs text-teal-700 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">directions_walk</span> En route Floor 4
+              </span>
+<button class="px-3.5 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all" onclick="openCompleteDrawer('SR-1049', 'Room 402', 'Extra Towels &amp; Linens', 'Thant Zin Oo')" type="button">
+<span class="material-symbols-outlined text-[15px]">check</span>
+<span>Complete</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Room 106 (Adapter) -->
+<div class="card-item bg-surface-container-lowest rounded-2xl p-5 border border-surface-container/80 shadow-sm hover:shadow-md transition-all flex flex-col gap-3.5" data-id="SR-1048" data-status="in_progress">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-primary-container text-on-primary tracking-wide">
+                Room 106
+              </span>
+<span class="text-xs font-semibold text-teal-800 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded-full">
+                Ko Kyaw
+              </span>
+</div>
+<div>
+<h3 class="text-base font-bold text-on-surface leading-tight">Universal Power Adapter (UK)</h3>
+<p class="text-xs text-on-surface-variant mt-1">Michael Chang • 18 mins ago</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 text-xs text-on-surface leading-relaxed">
+              “Requested standard 3-pin UK laptop plug adapter from Concierge stock.”
+            </div>
+<div class="pt-2 flex items-center justify-between border-t border-surface-container-low">
+<span class="text-xs text-on-surface-variant font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">support</span> Concierge
+              </span>
+<button class="px-3.5 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all" onclick="openCompleteDrawer('SR-1048', 'Room 106', 'Universal Power Adapter', 'Michael Chang')" type="button">
+<span class="material-symbols-outlined text-[15px]">check</span>
+<span>Complete</span>
+</button>
+</div>
+</div>
+<!-- Card 5: Room 118 (Luggage) -->
+<div class="card-item bg-surface-container-lowest rounded-2xl p-5 border border-surface-container/80 shadow-sm hover:shadow-md transition-all flex flex-col gap-3.5" data-id="SR-1041" data-status="in_progress">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-primary-container text-on-primary tracking-wide">
+                Room 118
+              </span>
+<span class="text-xs font-semibold text-teal-800 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded-full">
+                Porter Desk
+              </span>
+</div>
+<div>
+<h3 class="text-base font-bold text-on-surface leading-tight">Luggage Assistance / Downstairs</h3>
+<p class="text-xs text-on-surface-variant mt-1">Sophie Martin • 25 mins ago</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 text-xs text-on-surface leading-relaxed">
+              “3 hard-shell bags for 11:30 airport transfer. Cart staged at elevator.”
+            </div>
+<div class="pt-2 flex items-center justify-between border-t border-surface-container-low">
+<span class="text-xs text-on-surface-variant font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline">luggage</span> Bell Captain
+              </span>
+<button class="px-3.5 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all" onclick="openCompleteDrawer('SR-1041', 'Room 118', 'Luggage Assistance', 'Sophie Martin')" type="button">
+<span class="material-symbols-outlined text-[15px]">check</span>
+<span>Complete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- COLUMN 3: COMPLETED (Green) -->
+<div class="kanban-column flex flex-col gap-4" data-column="completed">
+<div class="flex items-center justify-between pb-1 px-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+<h2 class="text-sm font-bold text-on-surface uppercase tracking-wider">Completed</h2>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">1</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">Delivered &amp; Verified</span>
+</div>
+<!-- Card 6: Room 501 -->
+<div class="card-item bg-surface-container-lowest/80 rounded-2xl p-5 border border-surface-container/60 opacity-90 hover:opacity-100 transition-all flex flex-col gap-3.5" data-id="SR-1010" data-status="completed">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-surface-container-highest text-on-surface tracking-wide">
+                Room 501
+              </span>
+<span class="text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Delivered
+              </span>
+</div>
+<div>
+<h3 class="text-base font-semibold text-on-surface/80 line-through leading-tight">Welcome Fruit Platter Replenish</h3>
+<p class="text-xs text-on-surface-variant mt-1">Penthouse Loft • Handled at 09:22</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/50 text-xs text-on-surface-variant leading-relaxed">
+              “Fresh seasonal rambutan and dragonfruit platter delivered with chef welcome note.”
+            </div>
+<div class="pt-2 flex items-center justify-between border-t border-surface-container-low text-xs text-on-surface-variant">
+<span>Handled by Ma Hnin</span>
+<span class="font-medium text-emerald-700">Guest Signed</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- ================= LIGHTWEIGHT ACTION DRAWER (Non-Intrusive) ================= -->
+<div class="fixed inset-y-0 right-0 w-full sm:w-96 bg-surface-container-lowest shadow-2xl border-l border-surface-container z-50 transform translate-x-full transition-transform duration-200 ease-out flex flex-col justify-between" id="actionDrawer">
+<div>
+<div class="p-5 border-b border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-teal-500"></span>
+<h3 class="font-bold text-base text-on-surface">Confirm Completion</h3>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors" onclick="closeDrawer()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-6 flex flex-col gap-5">
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider" id="drawerRoomBadge">Room 402</span>
+<span class="text-base font-bold text-on-surface" id="drawerRequestTitle">Extra Towels &amp; Linens</span>
+<span class="text-xs text-on-surface-variant" id="drawerGuestName">Guest: Thant Zin Oo</span>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-semibold text-on-surface">Delivery Note (Optional)</label>
+<input class="w-full text-xs p-3 rounded-xl bg-surface border border-surface-container focus:outline-none focus:border-secondary" id="deliveryNoteInput" placeholder="Handed directly to guest, etc." type="text"/>
+</div>
+<div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Room folio will be automatically updated.</span>
+</div>
+</div>
+</div>
+<div class="p-5 border-t border-surface-container flex items-center gap-3 bg-surface-container-low/50">
+<button class="flex-1 py-2.5 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container transition-colors" onclick="closeDrawer()" type="button">
+        Cancel
+      </button>
+<button class="flex-1 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold transition-all shadow-sm flex items-center justify-center gap-1.5" onclick="confirmComplete()" type="button">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+<span>Mark Completed</span>
+</button>
+</div>
+</div>
+<!-- Toast Notification -->
+<div class="fixed bottom-6 right-6 px-4 py-3 rounded-xl bg-primary-container text-on-primary text-xs font-semibold shadow-lg flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-200 z-50" id="toastMessage">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">check_circle</span>
+<span id="toastText">Request updated successfully</span>
+</div>
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+    let activeCardId = null;
+
+    // Open Completion Drawer
+    function openCompleteDrawer(id, room, title, guest) {
+      activeCardId = id;
+      document.getElementById('drawerRoomBadge').textContent = room;
+      document.getElementById('drawerRequestTitle').textContent = title;
+      document.getElementById('drawerGuestName').textContent = 'Guest: ' + guest;
+      document.getElementById('deliveryNoteInput').value = '';
+      
+      const drawer = document.getElementById('actionDrawer');
+      drawer.classList.remove('translate-x-full');
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('actionDrawer');
+      drawer.classList.add('translate-x-full');
+      activeCardId = null;
+    }
+
+    // Confirm Complete Action
+    function confirmComplete() {
+      if (!activeCardId) return;
+      const card = document.querySelector(`.card-item[data-id="${activeCardId}"]`);
+      if (card) {
+        card.setAttribute('data-status', 'completed');
+        // Visually update the card
+        const btn = card.querySelector('button');
+        if (btn) btn.remove();
+        card.classList.add('opacity-80');
+        const titleEl = card.querySelector('h3');
+        if (titleEl) titleEl.classList.add('line-through', 'text-on-surface/70');
+        
+        // Move card to completed column
+        const completedCol = document.querySelector('.kanban-column[data-column="completed"]');
+        if (completedCol) {
+          completedCol.appendChild(card);
+        }
+      }
+      closeDrawer();
+      showToast('Request marked as Delivered & Archived.');
+    }
+
+    // Advance Card from Pending to In Progress
+    function advanceCard(id, newStatus) {
+      const card = document.querySelector(`.card-item[data-id="${id}"]`);
+      if (card) {
+        card.setAttribute('data-status', newStatus);
+        const inProgressCol = document.querySelector('.kanban-column[data-column="in_progress"]');
+        if (inProgressCol) {
+          inProgressCol.appendChild(card);
+        }
+        showToast('Request advanced to In Progress.');
+      }
+    }
+
+    // Toast Notification helper
+    function showToast(msg) {
+      const toast = document.getElementById('toastMessage');
+      const text = document.getElementById('toastText');
+      text.textContent = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    // Filter Tabs
+    const filterButtons = document.querySelectorAll('#filterTabGroup .tab-btn');
+    const cards = document.querySelectorAll('.card-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'font-semibold', 'shadow-xs');
+          b.classList.add('text-on-surface-variant', 'font-medium');
+        });
+        btn.classList.remove('text-on-surface-variant', 'font-medium');
+        btn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'font-semibold', 'shadow-xs');
+
+        const filter = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-status') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Quick Add Button
+    document.getElementById('quickAddBtn').addEventListener('click', () => {
+      showToast('Quick request creation window opened.');
+    });
+  </script>
+</body></html>

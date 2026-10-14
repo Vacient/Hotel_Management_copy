@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<title>StayFlow - QR Express Check-in</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base { 
+      html, body { margin: 0; padding: 0; } 
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#525f78",
+            "on-surface-variant": "#44474d",
+            "secondary-container": "#86f2e4",
+            "on-primary-fixed": "#0e1c32",
+            "on-tertiary": "#ffffff",
+            "background": "#f9f9ff",
+            "tertiary-fixed": "#ffdcc3",
+            "surface-container": "#e7eeff",
+            "tertiary-fixed-dim": "#ffb77d",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#d8e3fb",
+            "on-secondary-container": "#006f66",
+            "primary": "#000000",
+            "on-secondary-fixed": "#00201d",
+            "inverse-surface": "#263143",
+            "on-error": "#ffffff",
+            "surface": "#f9f9ff",
+            "on-primary-container": "#77849f",
+            "inverse-primary": "#b9c7e4",
+            "on-secondary": "#ffffff",
+            "outline": "#75777e",
+            "secondary": "#006a61",
+            "tertiary-container": "#2f1500",
+            "primary-fixed": "#d6e3ff",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#2f1500",
+            "on-primary-fixed-variant": "#3a475f",
+            "on-background": "#111c2d",
+            "surface-container-low": "#f0f3ff",
+            "surface-variant": "#d8e3fb",
+            "tertiary": "#000000",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "surface-container-high": "#dee8ff",
+            "primary-fixed-dim": "#b9c7e4",
+            "on-secondary-fixed-variant": "#005049",
+            "inverse-on-surface": "#ecf1ff",
+            "surface-dim": "#cfdaf2",
+            "primary-container": "#0e1c32",
+            "on-tertiary-container": "#c76c00",
+            "secondary-fixed-dim": "#6bd8cb",
+            "on-error-container": "#93000a",
+            "on-surface": "#111c2d",
+            "outline-variant": "#c5c6cd",
+            "surface-bright": "#f9f9ff",
+            "secondary-fixed": "#89f5e7",
+            "surface-container-lowest": "#ffffff"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-background font-body text-on-surface antialiased min-h-screen flex selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Clean, Calm Sidebar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-surface-container flex flex-col justify-between z-30">
+<div class="p-6">
+<!-- App Brand -->
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-secondary-fixed flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[22px]">hotel_class</span>
+</div>
+<div>
+<h2 class="text-base font-bold text-on-surface tracking-tight leading-tight">StayFlow</h2>
+<p class="text-xs text-on-surface-variant font-medium">Yangon Heritage Wing</p>
+</div>
+</div>
+<!-- Navigation -->
+<p class="text-[11px] font-semibold uppercase tracking-wider text-outline mb-2.5 px-3">Front Desk</p>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-outline">book_online</span>
+<span>Reservations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-on-primary bg-primary-container shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">qr_code_scanner</span>
+<span>QR Check-in</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-outline">concierge</span>
+<span>Guest Services</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-outline">key_off</span>
+<span>Check-out</span>
+</a>
+</nav>
+</div>
+<!-- Staff Profile Footer -->
+<div class="p-4 m-4 rounded-xl bg-surface-container-low/70 border border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-medium text-xs">
+          DN
+        </div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-on-surface leading-tight">Daw Nu Nu</span>
+<span class="text-[11px] text-on-surface-variant">Front Desk 01</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1 rounded-lg" title="Sign Out">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Viewport -->
+<div class="pl-64 flex-1 flex flex-col min-h-screen">
+<!-- Clean, Streamlined Top Bar -->
+<header class="h-16 border-b border-surface-container bg-surface-container-lowest/80 backdrop-blur-md sticky top-0 z-20 px-8 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<h1 class="text-lg font-bold text-on-surface">Express QR Check-In</h1>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-container/60 text-on-secondary-container">
+          Live Scanner Active
+        </span>
+</div>
+<div class="flex items-center gap-6">
+<div class="text-xs text-on-surface-variant flex items-center gap-4">
+<span class="flex items-center gap-1.5 font-medium text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> 18 Expected Today
+          </span>
+<span class="text-outline-variant">|</span>
+<span>12 Checked In</span>
+</div>
+<button class="w-9 h-9 rounded-xl border border-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 p-8 max-w-6xl w-full mx-auto">
+<!-- Intro & Calm Header -->
+<div class="mb-8">
+<h2 class="text-2xl font-bold text-on-surface tracking-tight">Guest Arrival &amp; Check-In</h2>
+<p class="text-sm text-on-surface-variant mt-1">Scan guest mobile QR pass or quickly search by reference code to confirm details.</p>
+</div>
+<!-- Core 2-Column Clean Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Modern Viewfinder & Fallback Input -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Viewfinder Card -->
+<div class="bg-surface-container-lowest border border-surface-container rounded-2xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2 text-on-surface font-semibold text-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">photo_camera</span>
+<span>Optical Scanner</span>
+</div>
+<span class="text-xs font-medium text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span> Ready
+              </span>
+</div>
+<!-- Clean Scanner Reticle Box -->
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-inverse-surface/95 flex items-center justify-center shadow-inner group">
+<!-- Soft background blur visual -->
+<div class="absolute inset-0 bg-cover bg-center filter blur-sm opacity-25" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7Zhl0KWroj5ffmbJ3JXcJkL63rgW7OqsKQOxwHjgeEGJFZPjUcKqm_KgO83fJdssH2nezAvbJF4X-k2s3MiotKxbNxEFCYMUfjFq2JHygE4NOS77Y4LgRQSNbkI7pB3A4ZFwm5ZQ-HHzw4eMr0HmVkl61ESCr1Fb9gYYdY8L10FAkO-uPoBmDwsDiitT8P8jv9xP8liqggY1hEiWAQAqYbusuPEYuWb3BehCqP2xov48AiMT6no8h')"></div>
+<!-- Subtle scanning reticle frame -->
+<div class="relative w-48 h-48 border border-white/20 rounded-2xl flex flex-col items-center justify-between p-3">
+<div class="w-full flex justify-between">
+<span class="w-4 h-4 border-t-2 border-l-2 border-secondary-fixed rounded-tl-sm"></span>
+<span class="w-4 h-4 border-t-2 border-r-2 border-secondary-fixed rounded-tr-sm"></span>
+</div>
+<!-- Animated Scanning Pulse Indicator -->
+<div class="w-10 h-10 rounded-full bg-secondary-fixed/20 border border-secondary-fixed/40 flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-[22px]">center_focus_strong</span>
+</div>
+<div class="w-full flex justify-between">
+<span class="w-4 h-4 border-b-2 border-l-2 border-secondary-fixed rounded-bl-sm"></span>
+<span class="w-4 h-4 border-b-2 border-r-2 border-secondary-fixed rounded-br-sm"></span>
+</div>
+</div>
+<div class="absolute bottom-3 text-center px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-sm">
+<p class="text-xs text-white/90 font-medium">Hold mobile voucher QR to camera</p>
+</div>
+</div>
+<!-- Manual Input Fallback -->
+<div class="mt-6 pt-5 border-t border-surface-container">
+<label class="block text-xs font-semibold text-on-surface-variant mb-2" for="bookingInput">
+                Or enter booking reference manually
+              </label>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined text-[18px] text-outline absolute left-3 top-2.5">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-xl border border-surface-container bg-surface-container-low text-sm font-medium text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary focus:bg-white uppercase tracking-wider" id="bookingInput" placeholder="e.g. SF-9481" type="text" value="SF-9481"/>
+</div>
+<button class="px-4 h-10 rounded-xl bg-primary-container text-white text-xs font-semibold hover:bg-inverse-surface transition-colors" type="button">
+                  Verify
+                </button>
+</div>
+</div>
+</div>
+<!-- Helpful Advice Pill (Subtle, Calm) -->
+<div class="p-4 rounded-xl bg-surface-container-low/70 border border-surface-container flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-secondary shrink-0 mt-0.5">info</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+              Upon scanning, reservation parameters are automatically validated against the hotel registry. Verify guest physical ID before releasing room keys.
+            </p>
+</div>
+</div>
+<!-- Right Column: Verification Result Card -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest border border-surface-container rounded-2xl p-7 shadow-sm">
+<!-- Result Banner (Positive, Clean) -->
+<div class="flex items-center justify-between pb-6 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<div>
+<h3 class="text-sm font-bold text-on-surface">Valid Booking — Ready for Check-In</h3>
+<p class="text-xs text-on-surface-variant">Confirmed via central reservation system</p>
+</div>
+</div>
+<span class="text-xs font-mono font-semibold px-2.5 py-1 rounded-lg bg-surface-container text-on-surface-variant">
+                #SF-2025-9481
+              </span>
+</div>
+<!-- Guest Profile Hero -->
+<div class="py-6 flex items-center gap-4">
+<img alt="Thant Zin Oo" class="w-14 h-14 rounded-2xl object-cover border border-surface-container shadow-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC65Cu169gj5FYB0wo7D86AWm4ToZ5cBMv-Ezd_4sZ5F6Bz9tQ2k2ld12nKgNhCC7LnvGPNa3YqHtKsmpidBmHeUj0aCVPQmpJNcZrCte4Kb79xXkEZabw1w4Ybcmne8o_EYtfrgZ4CCHxLgD6Y2rNAfo0qsuhXwMf9_dArKxKxmGTffvg3eOVMPMcLOZXtHX2gY7Kr-5HUHpRcSdvT3QwV_ZS6fOUf2qlla5iLrN6etRB_z1ahXa73"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<h4 class="text-lg font-bold text-on-surface">Thant Zin Oo</h4>
+<span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-secondary/10 text-secondary">Elite Tier</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5">2 Adults • NRC: 12/LAMATA(N)089211 • +95 9 798 123 456</p>
+</div>
+</div>
+<!-- Stay & Payment Details Bento -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-6">
+<!-- Room & Dates -->
+<div class="p-4 rounded-xl bg-surface-container-low/70 border border-surface-container">
+<span class="text-[11px] font-semibold text-outline uppercase tracking-wider block mb-1">Room &amp; Dates</span>
+<p class="text-base font-bold text-on-surface">Room 304</p>
+<p class="text-xs font-medium text-on-surface-variant">Deluxe Azure Suite (Floor 3)</p>
+<div class="mt-3 pt-2 border-t border-surface-container/60 text-xs text-on-surface-variant flex items-center justify-between">
+<span>18 – 21 Oct 2025</span>
+<span class="font-medium text-on-surface">3 Nights</span>
+</div>
+</div>
+<!-- Payment Status -->
+<div class="p-4 rounded-xl bg-surface-container-low/70 border border-surface-container">
+<span class="text-[11px] font-semibold text-outline uppercase tracking-wider block mb-1">Payment Folio</span>
+<p class="text-base font-bold text-secondary">Fully Prepaid</p>
+<p class="text-xs font-medium text-on-surface-variant">759,000 MMK via KBZPay</p>
+<div class="mt-3 pt-2 border-t border-surface-container/60 text-xs text-on-surface-variant flex items-center justify-between">
+<span>Balance Due:</span>
+<span class="font-bold text-secondary">0 MMK</span>
+</div>
+</div>
+</div>
+<!-- Simple Desk Checkpoints -->
+<div class="pt-2 pb-6 border-t border-surface-container">
+<span class="text-xs font-bold text-on-surface block mb-3">Front Desk Handover Checklist</span>
+<div class="space-y-2.5">
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low/40 border border-surface-container/60 hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface">Government ID verified against reservation</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low/40 border border-surface-container/60 hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="text-xs font-medium text-on-surface">Keycards encoded for Room #304 (2 physical cards)</span>
+</label>
+</div>
+</div>
+<!-- Key Actions -->
+<div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
+<button class="w-full sm:flex-1 h-12 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary text-sm font-semibold flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-[20px]">check</span>
+<span>Confirm &amp; Complete Check-In</span>
+</button>
+<button class="w-full sm:w-auto h-12 px-5 rounded-xl border border-surface-container hover:bg-surface-container-low text-on-surface text-sm font-semibold flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Print Key Slip</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
